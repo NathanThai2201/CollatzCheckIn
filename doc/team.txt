@@ -1,4 +1,3 @@
-# Collatz301
+Team Members
 
-
-CCID: nathai    USERNAME: NathanThai2201/CoPrime314
+CCID: nathai    USERNAME: NathanThai2201
