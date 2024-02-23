@@ -1,98 +1,70 @@
 [
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/drawable_baseline_camera_alt_24.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/drawable/baseline_camera_alt_24.xml"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/xml_backup_rules.xml.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/xml/backup_rules.xml"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/xml_backup_rules.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/xml/backup_rules.xml"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/drawable_baseline_person_24.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/drawable/baseline_person_24.xml"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/drawable/ic_launcher_background.xml"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/layout_fragment_update_profile.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/layout/fragment_update_profile.xml"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/layout_activity_main.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/layout/activity_main.xml"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/layout_activity_main.xml.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/layout/activity_main.xml"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/drawable/ic_launcher_foreground.xml"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/layout_fragment_profile.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/layout/fragment_profile.xml"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/layout_activity_update_profile.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/layout/activity_update_profile.xml"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/mipmap-anydpi-v26/ic_launcher.xml"
-    },
-    {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/drawable_baseline_home_24.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/drawable/baseline_home_24.xml"
-    },
-    {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/mipmap-xxxhdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/xml/data_extraction_rules.xml"
-    },
-    {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/menu_bottom_nav_bar.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/menu/bottom_nav_bar.xml"
-    },
-    {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/mipmap-xhdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/mipmap-hdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "com.example.collatzcheckin.app-merged_res-38:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.collatzcheckin.app-main-40:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.collatzcheckin.app-merged_res-31:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.collatzcheckin.app-main-33:/mipmap-xxxhdpi/ic_launcher_round.webp"
     }
 ]

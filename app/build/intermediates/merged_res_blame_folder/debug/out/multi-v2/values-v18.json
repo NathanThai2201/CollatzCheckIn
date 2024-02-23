@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.collatzcheckin.app-mergeDebugResources-36:/values-v18/values-v18.xml",
+            "outputFile": "com.example.collatzcheckin.app-mergeDebugResources-29:/values-v18/values-v18.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\nehal\\.gradle\\caches\\transforms-3\\8166a589a35a035bd9dd7b19086e549d\\transformed\\appcompat-1.6.1\\res\\values-v18\\values-v18.xml",
+                    "source": "/Users/nathanthai/.gradle/caches/transforms-3/cae0069d1585611eb98b1d4f16fa8d6e/transformed/appcompat-1.6.1/res/values-v18/values-v18.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
