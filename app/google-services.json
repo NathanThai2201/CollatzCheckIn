@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "584741750697",
+    "project_id": "collatzcheckin",
+    "storage_bucket": "collatzcheckin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584741750697:android:5ef3d711cf35f6a32066b8",
+        "android_client_info": {
+          "package_name": "com.example.collatzcheckin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPuC4ua2gUisWhXkaemVEpTr4yoSrHEXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
