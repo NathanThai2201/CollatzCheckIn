@@ -19,8 +19,8 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="438dp"
-        android:layout_height="631dp"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
         android:background="@drawable/container"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,24 +28,25 @@
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:id="@+id/event_name"
+            android:layout_width="232dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="28dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="188dp"
+            android:layout_marginEnd="133dp"
             android:text="EVENT NAME"
             android:textSize="36sp"
             android:textStyle="bold" />
 
 
         <TextView
+            android:id="@+id/event_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView"
+            android:layout_below="@+id/event_name"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="28dp"
@@ -70,6 +71,7 @@
             tools:layout_editor_absoluteX="0dp">
 
             <TextView
+                android:id="@+id/event_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -84,6 +86,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/event_day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -97,7 +100,8 @@
             </TextView>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/event_time"
+                android:layout_width="74dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
@@ -112,7 +116,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/event_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -121,46 +125,45 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="164dp"
             android:layout_marginEnd="15dp"
-            android:text="Lorem Ipsum is simply dummy text of
-                the printing  and typesetting industry.
-                Lorem Ipsum has been the industry's
-                standard  dummy text ever since the
-                1500s, when an unknown printer took
-                a galley of type and scrambled it to make a type specim"
+            android:text="Lorem Ipsum is simply dummy text of the printing  and typesetting industry. Lorem Ipsum has been the industry's standard  dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specim"
             android:textSize="24sp"
             android:textStyle="bold">
 
         </TextView>
 
+
         <Button
-            android:id="@+id/button"
+            android:id="@+id/view_attendee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/button"
-            android:layout_below="@+id/textView2"
+            android:layout_below="@+id/event_description"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="73dp"
-            android:layout_marginEnd="50dp"
-            android:layout_marginBottom="31dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="-1dp"
+            android:layout_marginBottom="71dp"
             android:text="View Attendees"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/edit_event"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/event_description"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="51dp"
-            android:layout_marginEnd="49dp"
-            android:layout_marginBottom="57dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="62dp"
+            android:layout_marginEnd="-1dp"
+            android:layout_marginBottom="16dp"
             android:text="Edit Event"
             android:textSize="24sp"
             android:textStyle="bold" />
+
     </RelativeLayout>
 
 
