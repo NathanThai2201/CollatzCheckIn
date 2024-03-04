@@ -1,15 +1,18 @@
 package com.example.collatzcheckin;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Event {
     private String eventTitle;
     private Organizer eventOrganizer;
-    private Date eventDate;
+    private String eventDate;
     private String eventDescription;
     private String eventPoster;
     private int memberLimit;
-    public Event(String eventTitle, Organizer eventOrganizer, Date eventDate, String eventDescription, String eventPoster, int memberLimit) {
+    public Event(String eventTitle, Organizer eventOrganizer, String eventDate, String eventDescription, String eventPoster, int memberLimit) {
         this.eventTitle = eventTitle;
         this.eventOrganizer = eventOrganizer;
         this.eventDate = eventDate;
@@ -26,19 +29,19 @@ public class Event {
         this.eventTitle = eventTitle;
     }
 
-    public Organizer getEventOrganizer() {
-        return eventOrganizer;
+    public String getEventOrganizer() {
+        return eventOrganizer.getName();
     }
 
     public void setEventOrganizer(Organizer eventOrganizer) {
         this.eventOrganizer = eventOrganizer;
     }
 
-    public Date getEventDate() {
-        return eventDate;
+    public String getEventDate() {
+       return eventDate;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 
