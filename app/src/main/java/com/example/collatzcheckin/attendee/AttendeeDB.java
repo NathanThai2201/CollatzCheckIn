@@ -54,17 +54,19 @@ public class AttendeeDB {
 
 
 
-        public void addUser(String uuid) {
+        public void addUser(User user) {
             HashMap<String, String> userData = new HashMap<>();
-            userData.put("Name", "user.getName()");
-            userData.put("Email", "user.getEmail()");
-            userData.put("Uid", "user.getUid()");
-            userRef.document(uuid)
+            userData.put("Name", user.getName());
+            userData.put("Email", user.getEmail());
+            userData.put("Uid", user.getUid());
+            Log.d("Firestore", "DocumentSnapshot successfully written!");
+            userRef.document(user.getUid())
                     .set(userData)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Log.d("Firestore", "DocumentSnapshot successfully written!");
+                            //return null;
                         }
                     });
     }

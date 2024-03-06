@@ -83,25 +83,15 @@ public class ProfileFragment extends Fragment{
 
         updateProfile = rootView.findViewById(R.id.updateButton);
 
-        Boolean isCurrentUser = authentication.validateUser();
+        uuid = authentication.identifyUser();
+        getUser(uuid);
 
-
-        if (isCurrentUser) {
-            uuid = authentication.identifyUser();
-
-
-            getUser(uuid);// Perform asynchronous task
-
-
-            Log.d(TAG, "Drkflm e: " + userData.get("Email"));
-
-        }
 
 
         updateProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateProfileFragment.newInstance().show(getFragmentManager(), "Modify profile");
+                UpdateProfileFragment.newInstance(user).show(getFragmentManager(), "Modify profile");
             }
         });
 
@@ -122,7 +112,8 @@ public class ProfileFragment extends Fragment{
                             Log.d(TAG, "DocumentSnapshot data: " + document.getString("Name"));
                             userData.put("Name", document.getString("Name"));
                             userData.put("Email", document.getString("Email"));
-                            userData.put("Uid", document.getString("Uid"));
+                            userData.put("Uid", uuid);
+                            user = new User(uuid, document.getString("Name"), document.getString("Uid"));
                             nameText.setText(document.getString("Name"));
                             emailText.setText(document.getString("Email"));
 

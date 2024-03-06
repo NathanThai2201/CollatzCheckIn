@@ -53,13 +53,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/username_text"
-                    android:drawablePadding="8dp"
-                    android:text=""
                     android:textSize="20sp"
+                    android:backgroundTint="@color/cardview_light_background"
                     android:padding="8dp"
                     android:textColor="@color/black"
                     android:inputType="text"
-                    android:textColorHighlight="@color/cardview_dark_background"
                     android:layout_marginTop="40dp"
                     android:autofillHints="" />
             </LinearLayout>
@@ -82,17 +80,17 @@
                     android:textColorHighlight="@color/cardview_dark_background"
                     android:layout_marginTop="40dp"/>
 
-                <TextView
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/email_text"
-                    android:drawablePadding="8dp"
-                    android:text=""
                     android:textSize="20sp"
+                    android:backgroundTint="@color/cardview_light_background"
                     android:padding="8dp"
                     android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background"
-                    android:layout_marginTop="40dp"/>
+                    android:inputType="text"
+                    android:layout_marginTop="40dp"
+                    android:autofillHints="" />
             </LinearLayout>
 
             <LinearLayout

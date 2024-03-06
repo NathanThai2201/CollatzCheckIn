@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 import com.example.collatzcheckin.MainActivity;
 import com.example.collatzcheckin.R;
+import com.example.collatzcheckin.attendee.AttendeeDB;
 import com.example.collatzcheckin.attendee.User;
+import com.example.collatzcheckin.authentication.AnonAuthentication;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,10 +35,9 @@ public class UpdateProfileActivity extends AppCompatActivity {
     private EditText userEmail;
     private String create_profile = "create_profile";
     private String userUuid;
-    private FirebaseFirestore db;
-    private CollectionReference usersRef;
+    private final AnonAuthentication authentication = new AnonAuthentication();
+    private final AttendeeDB attendeeDB = new AttendeeDB();
     private User user;
-    private FirebaseAuth mAuth;
 
     //if true then activity is for creating profile, if false it is for updating
     private boolean create;
@@ -45,11 +46,6 @@ public class UpdateProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_profile);
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-
-        db = FirebaseFirestore.getInstance();
-        usersRef = db.collection("users");
 
         doneButton = findViewById(R.id.done_button);
         cancelButton = findViewById(R.id.cancel_button);
@@ -58,26 +54,18 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        create = intent.getBooleanExtra(create_profile, false);
-
-        userUuid = currentUser.getUid().toString();
-//        getUser(userUuid, usersRef);
-
-//        if (currentUser != null && !create) {
-//            userUuid = currentUser.getUid().toString();
-//            getUser(userUuid, usersRef);
-//        }
+        userUuid = authentication.identifyUser();
 
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String nameEdit = userName.getText().toString();
-//                String emailEdit = userEmail.getText().toString();
-//
-//                user = new User(userUuid, nameEdit, emailEdit);
-//
-//                addUser(user);
+                String nameEdit = userName.getText().toString();
+                String emailEdit = userEmail.getText().toString();
 
+                user = new User(userUuid, nameEdit, emailEdit);
+                Log.d("Firestore", "start!");
+                attendeeDB.addUser(user);
+                Log.d("Firestore", "add!");
                 finish();
             }
         });
@@ -99,7 +87,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
 //                    @Override
 //                    public void onSuccess(Void aVoid) {
 //                        Log.d("Firestore", "DocumentSnapshot successfully written!");
-//                        return null;
+//                        //return null;
 //                    }
 //                });
 //    }
