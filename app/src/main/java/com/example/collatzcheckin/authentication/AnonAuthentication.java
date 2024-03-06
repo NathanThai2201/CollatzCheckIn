@@ -49,7 +49,7 @@ public class AnonAuthentication {
 
     public boolean updateUI(Context context) {
         this.context = context;
-        final Boolean[] createProfile = {true};
+        final Boolean[] createProfile = {false};
 
         if (getUser() == null) {
             mAuth.signInAnonymously()
@@ -67,8 +67,8 @@ public class AnonAuthentication {
                                 Toast.makeText(context, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();
                                 updateUI(context);
+                                createProfile[0] = false;
                             }
-                            createProfile[0] = false;
                         }
                     });
         }
