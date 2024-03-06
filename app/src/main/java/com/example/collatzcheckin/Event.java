@@ -1,10 +1,5 @@
 package com.example.collatzcheckin;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-
 public class Event {
     private String eventTitle;
     private Organizer eventOrganizer;

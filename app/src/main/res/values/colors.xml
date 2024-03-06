@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#80DEDEDE</color>
+    <color name="attendee_list_bg">#B3DDEBD1</color>
+    <color name="attendee_list_sub_heading">#D9D9D9</color>
+    <color name="attendee_list_heading">#80DEDEDE</color>
+    <color name="primary_button">#0A6C2C</color>
+    <color name="secondary_button">#3FA03D</color>
 </resources>

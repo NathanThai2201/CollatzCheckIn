@@ -1,7 +1,6 @@
 package com.example.collatzcheckin;
 
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 
