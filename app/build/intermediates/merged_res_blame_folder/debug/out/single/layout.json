@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\nehal\\.gradle\\daemon\\8.2\\com.example.collatzcheckin.app-mergeDebugResources-37:\\layout\\fragment_update_profile2.xml",
+        "source": "C:\\Users\\nehal\\.gradle\\daemon\\8.2\\com.example.collatzcheckin.app-main-40:\\layout\\fragment_update_profile2.xml"
+    },
+    {
+        "merged": "C:\\Users\\nehal\\.gradle\\daemon\\8.2\\com.example.collatzcheckin.app-mergeDebugResources-37:\\layout\\activity_update_profile.xml",
+        "source": "C:\\Users\\nehal\\.gradle\\daemon\\8.2\\com.example.collatzcheckin.app-main-40:\\layout\\activity_update_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\nehal\\.gradle\\daemon\\8.2\\com.example.collatzcheckin.app-mergeDebugResources-37:\\layout\\fragment_update_profile.xml",
+        "source": "C:\\Users\\nehal\\.gradle\\daemon\\8.2\\com.example.collatzcheckin.app-main-40:\\layout\\fragment_update_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\nehal\\.gradle\\daemon\\8.2\\com.example.collatzcheckin.app-mergeDebugResources-37:\\layout\\fragment_profile.xml",
+        "source": "C:\\Users\\nehal\\.gradle\\daemon\\8.2\\com.example.collatzcheckin.app-main-40:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\nehal\\.gradle\\daemon\\8.2\\com.example.collatzcheckin.app-mergeDebugResources-37:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\nehal\\.gradle\\daemon\\8.2\\com.example.collatzcheckin.app-main-40:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.example.collatzcheckin.app-mergeDebugResources-37:/layout/activity_update_profile.xml",
+        "source": "com.example.collatzcheckin.app-main-40:/layout/activity_update_profile.xml"
+    }
+]
