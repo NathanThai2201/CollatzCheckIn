@@ -32,7 +32,6 @@ public class User implements Serializable {
         this.events = new ArrayList<Event>();
         this.geolocation = false;
         this.notifications = false;
-
     }
 
     public User( String name, String username, String contactInformation, String uid) {
@@ -43,6 +42,16 @@ public class User implements Serializable {
         this.username = username;
         this.geolocation = false;
         this.notifications = false;
+
+    }
+    public User( String name, String username, String contactInformation, String uid, boolean geolocation, boolean notifications) {
+        this.name = name;
+        this.email = contactInformation;
+        this.uid = uid;
+        this.events = new ArrayList<Event>();
+        this.username = username;
+        this.geolocation = geolocation;
+        this.notifications = notifications;
 
     }
 
@@ -89,6 +98,13 @@ public class User implements Serializable {
     public boolean isGeolocation() {
         return geolocation;
     }
+    public String getGeolocation() {
+        if(geolocation) {
+            return "true";
+        } else {
+            return "false";
+        }
+    }
 
     public void setGeolocation(boolean geolocation) {
         this.geolocation = geolocation;
@@ -96,6 +112,13 @@ public class User implements Serializable {
 
     public boolean isNotifications() {
         return notifications;
+    }
+    public String getNotifications() {
+        if(notifications) {
+            return "true";
+        } else {
+            return "false";
+        }
     }
 
     public void setNotifications(boolean notifications) {

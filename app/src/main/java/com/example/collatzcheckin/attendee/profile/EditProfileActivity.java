@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,13 +28,12 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 
 public class EditProfileActivity extends AppCompatActivity {
-
-
     Button cancel;
     Button confirm;
     ShapeableImageView pfp;
     Uri imagePath;
     TextView name, username, email;
+    Switch geo, notif;
     AttendeeDB attendeeDB = new AttendeeDB();
     
 
@@ -50,6 +50,9 @@ public class EditProfileActivity extends AppCompatActivity {
         name = findViewById(R.id.editName);
         username = findViewById(R.id.editUsername);
         email = findViewById(R.id.editEmail);
+        geo = (Switch) findViewById(R.id.enablegeo);
+        notif = (Switch) findViewById(R.id.enablenotif);
+
         if (!user.getName().equals("")){
             name.setText(user.getName());
         }
@@ -61,8 +64,10 @@ public class EditProfileActivity extends AppCompatActivity {
         }
         if (user.getPfp()!=null){
             pfp.setImageURI(Uri.parse(user.getPfp()));
-
         }
+        geo.setChecked(user.isGeolocation());
+        notif.setChecked(user.isNotifications());
+
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +75,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 finish();
             }
         });
+
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +87,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 user.setUsername(newUsername);
                 String newEmail = email.getText().toString();
                 user.setEmail(newEmail);
+                user.setGeolocation(geo.isChecked());
+                user.setNotifications(notif.isChecked());
 
 
                 if (imagePath!=null) {

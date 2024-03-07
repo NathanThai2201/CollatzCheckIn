@@ -24,6 +24,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".attendee.profile.UpdateProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".attendee.profile.ProfileFragment"
             android:exported="true">
             <intent-filter>

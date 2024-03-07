@@ -27,33 +27,34 @@ import com.google.firebase.firestore.Query;
 
 import java.util.HashMap;
 
+/**
+ * MainActivity of the application, handles creating a new user profile
+ */
 public class UpdateProfileActivity extends AppCompatActivity {
 
     private Button doneButton;
-    private Button cancelButton;
     private EditText userName;
     private EditText userEmail;
-    private String create_profile = "create_profile";
     private String userUuid;
     private final AnonAuthentication authentication = new AnonAuthentication();
     private final AttendeeDB attendeeDB = new AttendeeDB();
     private User user;
+    private boolean isVaild = true;
 
-    //if true then activity is for creating profile, if false it is for updating
-    private boolean create;
-
+    /**
+     * Method to run on creation of the activity. Handles user profile creation
+     * @param savedInstanceState If the activity is being re-initialized after
+     *                           previously being shut down then this Bundle contains the data it most
+     *                           recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_profile);
 
         doneButton = findViewById(R.id.done_button);
-        cancelButton = findViewById(R.id.cancel_button);
         userName = findViewById(R.id.username);
         userEmail = findViewById(R.id.email);
-
-        Intent intent = getIntent();
-
         userUuid = authentication.identifyUser();
 
         doneButton.setOnClickListener(new View.OnClickListener() {
@@ -62,46 +63,29 @@ public class UpdateProfileActivity extends AppCompatActivity {
                 String nameEdit = userName.getText().toString();
                 String emailEdit = userEmail.getText().toString();
 
-                //user = new User(userUuid, nameEdit, emailEdit);
-                Log.d("Firestore", "start!");
-                attendeeDB.addUser(user);
-                Log.d("Firestore", "add!");
-                finish();
-            }
-        });
+                //simpleerror checking
+                if(nameEdit.length() < 1) {
+                    userName.setError("Please enter your name.");
+                    isVaild = false;
+                } else {
+                    userName.setError(null);
+                }
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
+                if(emailEdit.length() < 1) {
+                    userEmail.setError("Please enter your email.");
+                    isVaild = false;
+                } else {
+                    userEmail.setError(null);
+                }
+
+                if(isVaild) {
+                    user = new User(userUuid, nameEdit, emailEdit);
+                    attendeeDB.addUser(user);
+                    finish();
+                }
+
             }
         });
     }
 
-
-//    private void addUser(User userDetails) {
-//        usersRef
-//                .document(userDetails.getUid())
-//                .set(userDetails)
-//                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                    @Override
-//                    public void onSuccess(Void aVoid) {
-//                        Log.d("Firestore", "DocumentSnapshot successfully written!");
-//                        //return null;
-//                    }
-//                });
-//    }
-
-//    private void getUser(String uuid, CollectionReference ref) {
-//        DocumentReference docRef = ref.document(uuid);
-//        ref.document(uuid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-//            @Override
-//            public void onSuccess(DocumentSnapshot documentSnapshot) {
-//                User user1 = documentSnapshot.toObject(User.class);
-//                userName.setText(user1.getName());
-//                userEmail.setText(user1.getEmail());
-//                return user1;
-//            }
-//        });
-//    }
 }

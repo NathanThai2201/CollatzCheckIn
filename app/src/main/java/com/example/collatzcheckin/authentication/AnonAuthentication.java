@@ -21,20 +21,34 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.concurrent.Executor;
 
+/**
+ * AnonAuthentication handles user authentication
+ */
 public class AnonAuthentication {
     private final FirebaseAuth mAuth;
     Context context;
 
+    /**
+     * This constructs an instance of the Firebase Authenticator
+     */
     public AnonAuthentication() {
         mAuth = FirebaseAuth.getInstance();
     }
 
+    /**
+     * This checks if the user has previously signed in or not
+     * @return boolean value, where 'true' represents that there is an account and 'false' is not
+     */
     public boolean validateUser() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null) {return false;}
         return true;
     }
 
+    /**
+     * Gets the FirebaseUser object which has user information stored
+     * @return FirebaseUser object
+     */
     public FirebaseUser getUser() {
         return mAuth.getCurrentUser();
     }
@@ -47,6 +61,11 @@ public class AnonAuthentication {
         }
     }
 
+    /**
+     * Checks if it's the user first time and they need to create a profile
+     * @param context The activiity the authetication is being performed on
+     * @return boolean value, where true is they need to create a profile
+     */
     public boolean updateUI(Context context) {
         this.context = context;
         final Boolean[] createProfile = {false};
