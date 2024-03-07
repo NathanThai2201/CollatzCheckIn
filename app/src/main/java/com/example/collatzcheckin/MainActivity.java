@@ -32,11 +32,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.event_view_organizer);
         showEventList();
 
-        ArrayAdapter<Event> eventArrayAdapter = new EventArrayAdapter(this, new ArrayList<Event>());
 
-//        Event e = new Event("Main", new Organizer("Michael Carey"), Calendar.getInstance().getTime().toString(),"Test event", "URL", 22);
+//        Event e = new Event("Oilers vs Flames", new Organizer("Rogers"), "Mar 20 2024 20:00","Edmonton Oilers vs Calgary Flames", "URL", "Edmonton, AB", 10000);
+//        Event e2 = new Event("Concert", new Organizer("MSG"), "APR 05 2024 21:00","A concert", "URL", "Madison Square Garden", 40000);
+//
 //        EventDB eventDB = new EventDB();
 //        eventDB.addEvent(e);
+//        eventDB.addEvent(e2);
+
 
 
     }

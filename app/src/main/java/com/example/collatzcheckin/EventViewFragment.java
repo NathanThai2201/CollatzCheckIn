@@ -24,8 +24,10 @@ public class EventViewFragment extends Fragment {
     private View view;
     private Event event;
 
+    Button backButton;
     TextView eventTitle;
     TextView eventDescription;
+    TextView eventLocation;
     TextView eventMonth;
     TextView eventDay;
     TextView eventTime;
@@ -39,25 +41,37 @@ public class EventViewFragment extends Fragment {
         String[] words = event.getEventDate().split(" ");
 
         view = inflater.inflate(R.layout.fragment_event_view, container, false);
+
         Button viewAttendeeButton = view.findViewById(R.id.view_attendee);
+        backButton = view.findViewById(R.id.back_button_event_view);
         eventTitle = view.findViewById(R.id.event_title);
         eventTitle.setText(event.getEventTitle());
 
         eventDescription = view.findViewById(R.id.event_description);
         eventDescription.setText(event.getEventDescription());
 
+        eventLocation = view.findViewById(R.id.event_location);
+        eventLocation.setText(event.getEventLocation());
         eventMonth = view.findViewById(R.id.event_month);
-        eventMonth.setText(words[1]);
+        eventMonth.setText(words[0]);
 
         eventDay = view.findViewById(R.id.event_day);
-        eventDay.setText(words[2]);
+        eventDay.setText(words[1]);
 
         eventTime = view.findViewById(R.id.event_time);
-        eventTime.setText(words[3].substring(0,5));
+        eventTime.setText(words[words.length - 1]);
+
         viewAttendeeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((MainActivity)getActivity()).showAttendeeList(event);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity)getActivity()).showEventList();
             }
         });
         return view;

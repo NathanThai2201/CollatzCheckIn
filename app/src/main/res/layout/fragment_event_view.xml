@@ -151,5 +151,13 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <Button
+        android:id="@+id/back_button_event_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BACK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

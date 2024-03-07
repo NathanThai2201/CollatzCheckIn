@@ -6,13 +6,15 @@ public class Event {
     private String eventDate;
     private String eventDescription;
     private String eventPoster;
+    private String eventLocation;
     private int memberLimit;
-    public Event(String eventTitle, Organizer eventOrganizer, String eventDate, String eventDescription, String eventPoster, int memberLimit) {
+    public Event(String eventTitle, Organizer eventOrganizer, String eventDate, String eventDescription, String eventPoster, String eventLocation, int memberLimit) {
         this.eventTitle = eventTitle;
         this.eventOrganizer = eventOrganizer;
         this.eventDate = eventDate;
         this.eventDescription = eventDescription;
         this.eventPoster = eventPoster;
+        this.eventLocation = eventLocation;
         this.memberLimit = memberLimit;
     }
 
@@ -62,5 +64,13 @@ public class Event {
 
     public void setMemberLimit(int memberLimit) {
         this.memberLimit = memberLimit;
+    }
+
+    public String getEventLocation() {
+        return eventLocation;
+    }
+
+    public void setEventLocation(String eventLocation) {
+        this.eventLocation = eventLocation;
     }
 }

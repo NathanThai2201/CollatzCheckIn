@@ -38,7 +38,7 @@ public class EventArrayAdapter extends ArrayAdapter<Event> {
         TextView eventDate = view.findViewById(R.id.event_list_date);
 
         String[] wordList = event.getEventDate().split(" ");
-        String parsedString = wordList[1] + " " + wordList[2] + ", " + wordList[wordList.length - 1];
+        String parsedString = wordList[0] + " " + wordList[1] + ", " + wordList[wordList.length - 1];
 
         eventTitle.setText(event.getEventTitle());
         eventDate.setText(parsedString);

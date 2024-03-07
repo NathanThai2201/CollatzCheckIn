@@ -28,35 +28,10 @@ public class EventDB {
         eventData.put("Event Date", event.getEventDate());
         eventData.put("Event Description", event.getEventDescription());
         eventData.put("Event Poster", event.getEventPoster());
+        eventData.put("Event Location", event.getEventLocation());
         eventData.put("Member Limit", Integer.toString(event.getMemberLimit()));
         eventRef.document(event.getEventTitle()).set(eventData);
 
     }
 
-    public HashMap<String, String> getEvent(String eventName) {
-        HashMap<String, String> userData = new HashMap<>();
-        eventRef.document(eventName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                Log.d("TAG", task.toString());
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        Log.d("TAG", "DocumentSnapshot data: " + document.getData());
-                        Log.d("TAG", "DocumentSnapshot data: " + document.getString("Name"));
-                        userData.put("Name", document.getString("Name"));
-                        userData.put("Email", document.getString("Email"));
-                        userData.put("Uid", document.getString("Uid"));
-
-                    } else {
-                        Log.d("TAG", "No such document");
-                    }
-                } else {
-                    Log.d("TAG", "get failed with ", task.getException());
-                }
-            }
-        });
-
-        return userData;
-    }
 }
