@@ -62,7 +62,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
                 String nameEdit = userName.getText().toString();
                 String emailEdit = userEmail.getText().toString();
 
-                user = new User(userUuid, nameEdit, emailEdit);
+                //user = new User(userUuid, nameEdit, emailEdit);
                 Log.d("Firestore", "start!");
                 attendeeDB.addUser(user);
                 Log.d("Firestore", "add!");

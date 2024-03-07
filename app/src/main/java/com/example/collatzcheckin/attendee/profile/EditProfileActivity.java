@@ -1,37 +1,30 @@
-package com.example.collatzcheckin;
+package com.example.collatzcheckin.attendee.profile;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.collatzcheckin.R;
+import com.example.collatzcheckin.attendee.AttendeeDB;
+import com.example.collatzcheckin.attendee.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.net.URI;
-import java.util.UUID;
 
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -40,6 +33,8 @@ public class EditProfileActivity extends AppCompatActivity {
     Button confirm;
     ShapeableImageView pfp;
     Uri imagePath;
+    TextView name, username, email;
+    AttendeeDB attendeeDB = new AttendeeDB();
     
 
     @Override
@@ -52,9 +47,9 @@ public class EditProfileActivity extends AppCompatActivity {
         pfp = findViewById(R.id.editpfp);
         Intent intent = getIntent();
         User user = (User) intent.getSerializableExtra("user");
-        EditText name = findViewById(R.id.editName);
-        EditText username = findViewById(R.id.editUsername);
-        EditText email = findViewById(R.id.editEmail);
+        name = findViewById(R.id.editName);
+        username = findViewById(R.id.editUsername);
+        email = findViewById(R.id.editEmail);
         if (!user.getName().equals("")){
             name.setText(user.getName());
         }
@@ -68,6 +63,7 @@ public class EditProfileActivity extends AppCompatActivity {
             pfp.setImageURI(Uri.parse(user.getPfp()));
 
         }
+
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +96,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     user.setPfp(imagePath.toString());
                 }
 
+                attendeeDB.addUser(user);
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("updatedUser", user);
                 setResult(RESULT_OK, resultIntent);

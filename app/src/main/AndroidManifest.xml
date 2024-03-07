@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProfileFragment"
+            android:name=".attendee.profile.ProfileFragment"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EditProfileActivity"
+            android:name=".attendee.profile.EditProfileActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
