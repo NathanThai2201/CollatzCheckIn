@@ -12,6 +12,10 @@ import android.widget.Button;
 public class AttendeeListFragment extends Fragment {
 
     View view;
+    Event event;
+    public AttendeeListFragment(Event event) {
+        this.event = event;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -20,7 +24,7 @@ public class AttendeeListFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity)getActivity()).showEventView();
+                ((MainActivity)getActivity()).showEventView(event);
             }
         });
         return view;

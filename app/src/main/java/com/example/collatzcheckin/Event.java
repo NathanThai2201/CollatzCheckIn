@@ -33,7 +33,7 @@ public class Event {
     }
 
     public String getEventDate() {
-       return eventDate;
+        return this.eventDate;
     }
 
     public void setEventDate(String eventDate) {

@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class EventDB {
     private EventDBConnector eventDB;
-    private CollectionReference eventRef;
+    public CollectionReference eventRef;
 
     public EventDB() {
         this.eventDB = new EventDBConnector();
