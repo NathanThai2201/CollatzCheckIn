@@ -1,5 +1,7 @@
 package com.example.collatzcheckin;
-
+/**
+ * This is a temp organizer class
+ */
 public class Organizer {
     private String name;
     public Organizer(String name) {

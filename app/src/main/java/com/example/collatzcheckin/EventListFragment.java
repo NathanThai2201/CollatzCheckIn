@@ -20,12 +20,14 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-
+/**
+ * This is a fragment class for viewing the event list as a user
+ */
 public class EventListFragment extends Fragment {
     ListView eventList;
     ArrayAdapter<Event> eventArrayAdapter;
     ArrayList<Event> eventDataList;
-    private View view;
+    View view;
     EventDB db;
 
     @Override
@@ -33,12 +35,13 @@ public class EventListFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_event_list, container, false);
         db = new EventDB();
-
         eventList = view.findViewById(R.id.event_list_view);
         eventDataList = new ArrayList<>();
         eventArrayAdapter = new EventArrayAdapter(getContext(), eventDataList);
         eventList.setAdapter(eventArrayAdapter);
 
+
+        //Get all events
         db.eventRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot querySnapshots, @Nullable FirebaseFirestoreException error) {
@@ -65,6 +68,8 @@ public class EventListFragment extends Fragment {
             }
         });
 
+        //Set item click listener
+        //On click goto the event detail page for given item
         eventList.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
             @Override
@@ -77,13 +82,6 @@ public class EventListFragment extends Fragment {
                 // do what you intend to do on click of listview row
             }
         });
-
-
-
-
-
-
-
 
         return view;
     }

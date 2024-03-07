@@ -18,7 +18,9 @@ import org.checkerframework.checker.units.qual.A;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+/**
+ * This is a fragment class for viewing the event detail page as a user
+ */
 public class EventViewFragment extends Fragment {
     private EventDB db ;
     private View view;
@@ -38,11 +40,15 @@ public class EventViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        //Parse date
         String[] words = event.getEventDate().split(" ");
 
         view = inflater.inflate(R.layout.fragment_event_view, container, false);
 
         Button viewAttendeeButton = view.findViewById(R.id.view_attendee);
+
+        //Setting all the textviews for the given event
         backButton = view.findViewById(R.id.back_button_event_view);
         eventTitle = view.findViewById(R.id.event_title);
         eventTitle.setText(event.getEventTitle());
@@ -61,6 +67,7 @@ public class EventViewFragment extends Fragment {
         eventTime = view.findViewById(R.id.event_time);
         eventTime.setText(words[words.length - 1]);
 
+        //Switch to attendee list
         viewAttendeeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +75,7 @@ public class EventViewFragment extends Fragment {
             }
         });
 
+        //Switch back to event list
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,18 +86,4 @@ public class EventViewFragment extends Fragment {
 
     }
 
-//    public ArrayList<String> fetchEvent() {
-//        db = new EventDB();
-//        HashMap<String, String> fetchData = db.getEvent("Main");
-//        ArrayList<String> eventData = new ArrayList<>();
-//        eventData.add(fetchData.get("eventTitle"));
-//        eventData.add(fetchData.get("eventDescription"));
-//        String date = fetchData.get("eventDate");
-//        String[] parsedDate = date.split(" ");
-//        eventData.add(parsedDate[1]);
-//        eventData.add(parsedDate[2]);
-//        eventData.add(parsedDate[parsedDate.length - 1]);
-//
-//        return eventData;
-//    }
 }

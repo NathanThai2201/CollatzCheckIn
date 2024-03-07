@@ -1,5 +1,9 @@
 package com.example.collatzcheckin;
 
+
+/**
+ * This is a class that defines an event.
+ */
 public class Event {
     private String eventTitle;
     private Organizer eventOrganizer;
@@ -18,6 +22,8 @@ public class Event {
         this.memberLimit = memberLimit;
     }
 
+
+    //GETTERS AND SETTERS
     public String getEventTitle() {
         return eventTitle;
     }
