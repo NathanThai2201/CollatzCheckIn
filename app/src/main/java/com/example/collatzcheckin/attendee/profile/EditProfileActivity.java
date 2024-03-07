@@ -27,6 +27,9 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 
+/**
+ * EditProfileActivity of the application, allows users to edit their existing profile
+ */
 public class EditProfileActivity extends AppCompatActivity {
     Button cancel;
     Button confirm;
@@ -35,8 +38,14 @@ public class EditProfileActivity extends AppCompatActivity {
     TextView name, username, email;
     Switch geo, notif;
     AttendeeDB attendeeDB = new AttendeeDB();
-    
 
+
+    /**
+     * Method to run on creation of the activity. Handles user profile editing abilities
+     * @param savedInstanceState If the activity is being re-initialized after
+     *                           previously being shut down then this Bundle contains the data it most
+     *                           recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

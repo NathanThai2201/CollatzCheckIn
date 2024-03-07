@@ -28,7 +28,7 @@ import com.google.firebase.firestore.Query;
 import java.util.HashMap;
 
 /**
- * MainActivity of the application, handles creating a new user profile
+ * UpdateProfileActivity of the application, handles creating a new user profile
  */
 public class UpdateProfileActivity extends AppCompatActivity {
 
