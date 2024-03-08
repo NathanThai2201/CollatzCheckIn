@@ -17,8 +17,11 @@ public class User implements Serializable {
     private String username;
     private String email;
     private List<Event> events;
+    private List<String> attendingEvents;
+    private List<String> organizingEvents;
     private boolean notifications;
     private boolean geolocation;
+    private boolean isOrganizer = false;
     private String uid;
 
 
@@ -32,7 +35,7 @@ public class User implements Serializable {
     /**
      * This constructs a user class where unique identifier is set
      * This is used for the Firebase Authentication
-     * @param uuid The unique identifier for this user to reference in firestore to find their
+     * @param uid The unique identifier for this user to reference in firestore to find their
      *              item collection
      */
     public User(String uid) {
@@ -41,7 +44,7 @@ public class User implements Serializable {
 
     /**
      * This constructs a user class
-     * @param uuid The unique identifier for this user to reference in firestore to find their
+     * @param uid The unique identifier for this user to reference in firestore to find their
      *             item collection
      * @param name name of user
      * @param contactInformation user email
@@ -51,6 +54,8 @@ public class User implements Serializable {
         this.email = contactInformation;
         this.uid = uid;
         this.events = new ArrayList<Event>();
+        this.organizingEvents = new ArrayList<String>();
+        this.attendingEvents = new ArrayList<String>();
         this.geolocation = false;
         this.notifications = false;
     }
@@ -60,7 +65,7 @@ public class User implements Serializable {
      * @param name name of user
      * @param username username for homepage
      * @param contactInformation user email
-     * @param uuid The unique identifier for this user to reference in firestore to find their
+     * @param uid The unique identifier for this user to reference in firestore to find their
      *              item collection
      */
     public User( String name, String username, String contactInformation, String uid) {
@@ -68,6 +73,8 @@ public class User implements Serializable {
         this.email = contactInformation;
         this.uid = uid;
         this.events = new ArrayList<Event>();
+        this.organizingEvents = new ArrayList<String>();
+        this.attendingEvents = new ArrayList<String>();
         this.username = username;
         this.geolocation = false;
         this.notifications = false;
@@ -79,7 +86,7 @@ public class User implements Serializable {
      * @param name name of user
      * @param username username for homepage
      * @param contactInformation user email
-     * @param uuid The unique identifier for this user to reference in firestore to find their
+     * @param uid The unique identifier for this user to reference in firestore to find their
      *              item collection
      * @param geolocation Geolocation perferences ('true' for enabled, 'false' for disabled)
      * @param notifications Notifications perferences ('true' for enabled, 'false' for disabled)
@@ -89,6 +96,8 @@ public class User implements Serializable {
         this.email = contactInformation;
         this.uid = uid;
         this.events = new ArrayList<Event>();
+        this.organizingEvents = new ArrayList<String>();
+        this.attendingEvents = new ArrayList<String>();
         this.username = username;
         this.geolocation = geolocation;
         this.notifications = notifications;
@@ -168,6 +177,26 @@ public class User implements Serializable {
     }
 
     /**
+     * Getter for a list of events that the user has signed up to attend
+     * @return email
+     */
+    public List<String> getAttendingEvents() {
+        return this.attendingEvents;
+    }
+    public List<String> getOrganizingEvents() {
+        return this.organizingEvents;
+    }
+    /**
+     * Add an event to the list of events that the user is attending
+     * @param event event the user will be attending
+     */
+    public void addOrganizingEvent(Event event) {
+
+        organizingEvents.add(event.getEventTitle());
+    }
+    public void AddAttendingEvent(Event event) {
+        attendingEvents.add(event.getEventTitle());}
+    /**
      * Add an event to the list of events that the user is attending
      * @param event event the user will be attending
      */
@@ -187,11 +216,11 @@ public class User implements Serializable {
      * Convert boolean value to string equivalent
      * @return string equivalent of geolocation perferences
      */
-    public String getGeolocation() {
+    public Boolean getGeolocation() {
         if(geolocation) {
-            return "true";
+            return true;
         } else {
-            return "false";
+            return false;
         }
     }
 
@@ -211,11 +240,11 @@ public class User implements Serializable {
      * Convert boolean value to string equivalent
      * @return string equivalent of notification perferences
      */
-    public String getNotifications() {
+    public Boolean getNotifications() {
         if(notifications) {
-            return "true";
+            return true;
         } else {
-            return "false";
+            return false;
         }
     }
 
@@ -241,5 +270,12 @@ public class User implements Serializable {
      */
     public void setUid(String uid) {
         this.uid = uid;
+    }
+    public boolean isOrganizer() {
+        return isOrganizer;
+    }
+
+    public void setOrganizer(boolean organizer) {
+        isOrganizer = organizer;
     }
 }

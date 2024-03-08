@@ -69,8 +69,7 @@ public class EditEventFragment extends Fragment {
         eventLocationInput = view.findViewById(R.id.event_location_input);
         eventDateInput = view.findViewById(R.id.event_date_input);
         posterImage = view.findViewById(R.id.poster_image);
-        String eventid = "id1";
-        String eventid2 = "Concert";
+        String eventid = event.getEventTitle();
         storageReference = FirebaseStorage.getInstance().getReference("posters/"+eventid);
         try {
             final File localFile = File.createTempFile("images", "jpg");
@@ -95,7 +94,7 @@ public class EditEventFragment extends Fragment {
                 if (querySnapshots != null) {
                     for (QueryDocumentSnapshot doc : querySnapshots) {
                         String eventID = doc.getId();
-                        if (eventID.equals(eventid2)) {
+                        if (eventID.equals(eventid)) {
                             String eventDate = doc.getString("Event Date");
                             eventDateInput.setText(eventDate);
                             String eventDescription = doc.getString("Event Description");
@@ -113,12 +112,13 @@ public class EditEventFragment extends Fragment {
                 submitChanges();
             }
         });
-//        backButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requireActivity().finish();
 //                ((MainActivity)getActivity()).showEventView(event);
-//            }
-//        });
+            }
+        });
         selectPosterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,7 +174,7 @@ public class EditEventFragment extends Fragment {
         String event_Description = eventDescriptionInput.getText().toString();
         String event_Date = eventDateInput.getText().toString();
         String event_Location = eventLocationInput.getText().toString();
-        db.eventRef.document("Concert") // Assuming "Concert" is the document ID
+        db.eventRef.document(event.getEventTitle()) // Assuming "Concert" is the document ID
                 .update("Event Description", event_Description,
                         "Event Date", event_Date,
                         "Event Location", event_Location)

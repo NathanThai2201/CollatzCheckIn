@@ -5,6 +5,7 @@ import android.util.Log;
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 import androidx.annotation.NonNull;
 
+import com.example.collatzcheckin.attendee.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -70,13 +71,13 @@ public class AttendeeDB {
      * Query to add/update user data
      * @param user Object of type user that holds user data
      */
-        public void addUser(User user) {
+        public void addUser(com.example.collatzcheckin.attendee.User user) {
             HashMap<String, String> userData = new HashMap<>();
             userData.put("Name", user.getName());
             userData.put("Email", user.getEmail());
             userData.put("Uid", user.getUid());
-            userData.put("Geo", user.getGeolocation());
-            userData.put("Notif", user.getNotifications());
+            userData.put("Geo", (user.getGeolocation()).toString());
+            userData.put("Notif", (user.getNotifications()).toString());
             Log.d("Firestore", "DocumentSnapshot successfully written!");
             userRef.document(user.getUid())
                     .set(userData)
