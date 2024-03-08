@@ -37,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
                 .addToBackStack(null)
                 .commit();
     }
+    public void showEditEvent() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new EditEventFragment())
+                .addToBackStack(null)
+                .commit();
+    }
 
     public void showEventView() {
         getSupportFragmentManager().beginTransaction()

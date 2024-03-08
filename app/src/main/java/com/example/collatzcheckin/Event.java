@@ -2,18 +2,20 @@ package com.example.collatzcheckin;
 
 public class Event {
     private String eventTitle;
+    private String eventID;
     private Organizer eventOrganizer;
     private String eventDate;
     private String eventDescription;
     private String eventPoster;
     private int memberLimit;
-    public Event(String eventTitle, Organizer eventOrganizer, String eventDate, String eventDescription, String eventPoster, int memberLimit) {
+    public Event(String eventID, String eventTitle, Organizer eventOrganizer, String eventDate, String eventDescription, String eventPoster, int memberLimit) {
         this.eventTitle = eventTitle;
         this.eventOrganizer = eventOrganizer;
         this.eventDate = eventDate;
         this.eventDescription = eventDescription;
         this.eventPoster = eventPoster;
         this.memberLimit = memberLimit;
+        this.eventID = eventID;
     }
 
     public String getEventTitle() {
@@ -62,5 +64,12 @@ public class Event {
 
     public void setMemberLimit(int memberLimit) {
         this.memberLimit = memberLimit;
+    }
+    public String getId() {
+        return eventID;
+    }
+
+    public void setId(String eventID) {
+        this.eventID = eventID;
     }
 }

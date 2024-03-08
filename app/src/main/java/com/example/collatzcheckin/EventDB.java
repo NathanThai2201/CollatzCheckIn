@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class EventDB {
     private EventDBConnector eventDB;
-    private CollectionReference eventRef;
+    public CollectionReference eventRef;
 
     public EventDB() {
         this.eventDB = new EventDBConnector();
