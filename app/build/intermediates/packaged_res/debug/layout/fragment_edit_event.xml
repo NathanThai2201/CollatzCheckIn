@@ -58,24 +58,33 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:id="@+id/event_date_input"
             app:layout_constraintTop_toBottomOf="@id/select_poster_button"
             android:hint="Event Date" />
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:id="@+id/event_description_input"
             app:layout_constraintTop_toBottomOf="@id/event_date_input"
             android:hint="Event Description" />
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:id="@+id/event_location_input"
             app:layout_constraintTop_toBottomOf="@id/event_description_input"
             android:hint="Event Location" />
+
+        <Button
+            android:id="@+id/submit_event_edit_button"
+            android:layout_width="168dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/secondary_button"
+            android:text="Submit Changes"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

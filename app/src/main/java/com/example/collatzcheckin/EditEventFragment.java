@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -48,6 +49,9 @@ public class EditEventFragment extends Fragment {
     StorageReference storageReference;
     ImageView posterImage;
     EventDB db;
+    private TextInputEditText eventDescriptionInput;
+    private TextInputEditText eventDateInput;
+    private TextInputEditText eventLocationInput;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -56,6 +60,10 @@ public class EditEventFragment extends Fragment {
         Button selectPosterButton = view.findViewById(R.id.select_poster_button);
         Button uploadPosterButton = view.findViewById(R.id.upload_poster_button);
         Button backButton = view.findViewById(R.id.back_button);
+        Button submitButton = view.findViewById(R.id.submit_event_edit_button);
+        eventDescriptionInput = view.findViewById(R.id.event_description_input);
+        eventLocationInput = view.findViewById(R.id.event_location_input);
+        eventDateInput = view.findViewById(R.id.event_date_input);
         posterImage = view.findViewById(R.id.poster_image);
         String eventid = "id1";
         String eventid2 = "Concert";
@@ -83,17 +91,22 @@ public class EditEventFragment extends Fragment {
                 if (querySnapshots != null) {
                     for (QueryDocumentSnapshot doc : querySnapshots) {
                         String eventID = doc.getId();
-                        if (eventID == eventid2) {
-                            String eventTitle = doc.getString("Event Title");
-                            Organizer eventOrganizer = new Organizer(doc.getString("Event Organizer"));
+                        if (eventID.equals(eventid2)) {
                             String eventDate = doc.getString("Event Date");
+                            eventDateInput.setText(eventDate);
                             String eventDescription = doc.getString("Event Description");
-                            String eventPoster = doc.getString("Event Poster");
+                            eventDescriptionInput.setText(eventDescription);
                             String eventLocation = doc.getString("Event Location");
-                            String memberLimit = doc.getString("Member Limit");
+                            eventLocationInput.setText(eventLocation);
                         }
                     }
                 }
+            }
+        });
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                submitChanges();
             }
         });
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -153,5 +166,26 @@ public class EditEventFragment extends Fragment {
         imageIntent.setAction(Intent.ACTION_GET_CONTENT);
         launcher.launch(imageIntent);
     }
-
+    private void submitChanges(){
+        String event_Description = eventDescriptionInput.getText().toString();
+        String event_Date = eventDateInput.getText().toString();
+        String event_Location = eventLocationInput.getText().toString();
+        db.eventRef.document("Concert") // Assuming "Concert" is the document ID
+                .update("Event Description", event_Description,
+                        "Event Date", event_Date,
+                        "Event Location", event_Location)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(getContext(), "Changes saved successfully", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getContext(), "Failed to save changes", Toast.LENGTH_SHORT).show();
+                        Log.e("Firestore", "Error updating document", e);
+                    }
+                });
+    }
 }

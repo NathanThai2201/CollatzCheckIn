@@ -33,6 +33,7 @@ id event_name
 id event_time
 id poster_image
 id select_poster_button
+id submit_event_edit_button
 id textView
 id textView2
 id textView3

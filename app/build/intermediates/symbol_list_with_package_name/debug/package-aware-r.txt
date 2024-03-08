@@ -3565,6 +3565,7 @@ id stop
 id stretch
 id submenuarrow
 id submit_area
+id submit_event_edit_button
 id supportScrollUp
 id tabMode
 id tag_accessibility_actions
