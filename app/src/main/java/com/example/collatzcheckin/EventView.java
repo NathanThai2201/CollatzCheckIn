@@ -41,16 +41,22 @@ public class EventView extends AppCompatActivity {
         Event event = (Event) intent.getSerializableExtra("event");
         String[] parsedData = event.getEventDate().split(" ");
         eventTitle = findViewById(R.id.event_name);
-        eventTitle.setText(event.getEventTitle());
-
         eventMonth = findViewById(R.id.event_month);
-        eventMonth.setText(parsedData[0]);
-
         eventDay = findViewById(R.id.event_day);
-        eventDay.setText(parsedData[1]);
-
         eventTime = findViewById(R.id.event_time);
-        eventTime.setText(parsedData[parsedData.length - 1]);
+
+        eventTitle.setText(event.getEventTitle());
+        if (parsedData.length >= 2) {
+            eventMonth.setText(parsedData[0]);
+            eventDay.setText(parsedData[1]);
+        }
+
+        if (parsedData.length > 2) {
+            eventTime.setText(parsedData[parsedData.length - 1]);
+        } else {
+            // Handle the case where there is no time information
+            eventTime.setText("No time information");
+        }
 
 
         eventDescription = findViewById(R.id.event_description);
@@ -62,8 +68,7 @@ public class EventView extends AppCompatActivity {
         eventLocation.setText(event.getEventLocation());
 
         posterImage = findViewById(R.id.poster_image);
-        String eventid = "id1";
-        String eventid2 = "Concert";
+        String eventid = event.getEventTitle();
         storageReference = FirebaseStorage.getInstance().getReference("posters/"+eventid);
         try {
             final File localFile = File.createTempFile("images", "jpg");

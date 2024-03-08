@@ -2,6 +2,8 @@ package com.example.collatzcheckin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.collatzcheckin.attendee.User;
+import com.example.collatzcheckin.attendee.AttendeeDB;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +17,7 @@ public class CreateEvent extends AppCompatActivity {
     TextView eventDate;
     TextView eventDescription;
     TextView eventLimit;
-    User user;
+    //User user;
     /**
      * Method to run on creation of the activity. Handles create event
      * @param savedInstanceState If the activity is being re-initialized after
@@ -27,7 +29,7 @@ public class CreateEvent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
         Intent intent = getIntent();
-        User user = (User) intent.getSerializableExtra("user");
+        com.example.collatzcheckin.attendee.User user = (User) intent.getSerializableExtra("user");
 
         eventTitle = findViewById(R.id.edit_event_name);
         eventDate = findViewById(R.id.edit_event_date);

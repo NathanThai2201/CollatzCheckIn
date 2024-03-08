@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-
+import com.example.collatzcheckin.attendee.AttendeeDB;
 import java.net.Authenticator;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
