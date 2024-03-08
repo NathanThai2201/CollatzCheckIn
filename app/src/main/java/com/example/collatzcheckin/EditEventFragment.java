@@ -58,6 +58,7 @@ public class EditEventFragment extends Fragment {
         Button backButton = view.findViewById(R.id.back_button);
         posterImage = view.findViewById(R.id.poster_image);
         String eventid = "id1";
+        String eventid2 = "Concert";
         storageReference = FirebaseStorage.getInstance().getReference("posters/"+eventid);
         try {
             final File localFile = File.createTempFile("images", "jpg");
@@ -82,13 +83,15 @@ public class EditEventFragment extends Fragment {
                 if (querySnapshots != null) {
                     for (QueryDocumentSnapshot doc : querySnapshots) {
                         String eventID = doc.getId();
-                        String eventTitle = doc.getString("Event Title");
-                        Organizer eventOrganizer = new Organizer(doc.getString("Event Organizer"));
-                        String eventDate = doc.getString("Event Date");
-                        String eventDescription = doc.getString("Event Description");
-                        String eventPoster = doc.getString("Event Poster");
-                        String eventLocation = doc.getString("Event Location");
-                        String memberLimit = doc.getString("Member Limit");
+                        if (eventID == eventid2) {
+                            String eventTitle = doc.getString("Event Title");
+                            Organizer eventOrganizer = new Organizer(doc.getString("Event Organizer"));
+                            String eventDate = doc.getString("Event Date");
+                            String eventDescription = doc.getString("Event Description");
+                            String eventPoster = doc.getString("Event Poster");
+                            String eventLocation = doc.getString("Event Location");
+                            String memberLimit = doc.getString("Member Limit");
+                        }
                     }
                 }
             }

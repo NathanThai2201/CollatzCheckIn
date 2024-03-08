@@ -3304,10 +3304,13 @@ int id end 0x7f0800b8
 int id endToStart 0x7f0800b9
 int id enterAlways 0x7f0800ba
 int id enterAlwaysCollapsed 0x7f0800bb
+int id event_date_input 0x7f08020e
 int id event_day 0x7f0800bc
 int id event_description 0x7f0800bd
+int id event_description_input 0x7f08020f
 int id event_frame_view 0x7f0800be
 int id event_location 0x7f0800bf
+int id event_location_input 0x7f080210
 int id event_month 0x7f0800c0
 int id event_name 0x7f0800c1
 int id event_time 0x7f0800c2

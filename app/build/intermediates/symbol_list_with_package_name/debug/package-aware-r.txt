@@ -3305,10 +3305,13 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
+id event_date_input
 id event_day
 id event_description
+id event_description_input
 id event_frame_view
 id event_location
+id event_location_input
 id event_month
 id event_name
 id event_time

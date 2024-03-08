@@ -20,16 +20,12 @@
         "source": "/Users/nathanthai/.gradle/daemon/8.2/com.example.collatzcheckin.app-main-37:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "/Users/nathanthai/.gradle/daemon/8.2/com.example.collatzcheckin.app-merged_res-35:/xml_data_extraction_rules.xml.flat",
-        "source": "/Users/nathanthai/.gradle/daemon/8.2/com.example.collatzcheckin.app-main-37:/xml/data_extraction_rules.xml"
-    },
-    {
         "merged": "/Users/nathanthai/.gradle/daemon/8.2/com.example.collatzcheckin.app-merged_res-35:/mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "/Users/nathanthai/.gradle/daemon/8.2/com.example.collatzcheckin.app-main-37:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.collatzcheckin.app-merged_res-35:/layout_fragment_attendee_list.xml.flat",
-        "source": "com.example.collatzcheckin.app-main-37:/layout/fragment_attendee_list.xml"
+        "merged": "/Users/nathanthai/.gradle/daemon/8.2/com.example.collatzcheckin.app-merged_res-35:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/nathanthai/.gradle/daemon/8.2/com.example.collatzcheckin.app-main-37:/xml/data_extraction_rules.xml"
     },
     {
         "merged": "/Users/nathanthai/.gradle/daemon/8.2/com.example.collatzcheckin.app-merged_res-35:/layout_fragment_edit_event.xml.flat",

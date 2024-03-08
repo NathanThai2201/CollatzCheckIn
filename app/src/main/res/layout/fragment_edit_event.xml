@@ -56,5 +56,26 @@
             android:backgroundTint="@color/primary_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/event_date_input"
+            app:layout_constraintTop_toBottomOf="@id/select_poster_button"
+            android:hint="Event Date" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/event_description_input"
+            app:layout_constraintTop_toBottomOf="@id/event_date_input"
+            android:hint="Event Description" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/event_location_input"
+            app:layout_constraintTop_toBottomOf="@id/event_description_input"
+            android:hint="Event Location" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
