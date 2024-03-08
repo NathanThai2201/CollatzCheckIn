@@ -40,6 +40,10 @@ public class AttendeeDB {
      * @param uuid The unique idenitfier assigned to the user using Firebase Authenticator
      */
     public HashMap<String, String> findUser(String uuid) {
+        if (uuid == null) {
+            // Handle the case where uuid is null (e.g., log an error, throw an exception, or return an appropriate value)
+            return new HashMap<>();
+        }
         HashMap<String, String> userData = new HashMap<>();
         userRef.document(uuid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override

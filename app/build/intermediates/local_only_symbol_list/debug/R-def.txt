@@ -68,6 +68,7 @@ id event_date_input
 id event_day
 id event_description
 id event_description_input
+id event_edit_frame
 id event_frame_view
 id event_list
 id event_list_date

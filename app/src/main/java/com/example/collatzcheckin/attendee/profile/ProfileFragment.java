@@ -161,6 +161,11 @@ public class ProfileFragment extends Fragment {
      * @param uuid The unique idenitfier assigned to the user using Firebase Authenticator
      */
     private void getUser(String uuid) {
+        if (uuid == null) {
+            // Handle the case where uuid is null (e.g., log an error, throw an exception, or return)
+            Log.e(TAG, "UUID is null in getUser");
+            return;
+        }
         CollectionReference ref = attendeeDB.getUserRef();
         DocumentReference docRef = ref.document(uuid);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

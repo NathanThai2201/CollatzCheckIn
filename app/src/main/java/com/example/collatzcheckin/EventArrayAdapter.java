@@ -54,7 +54,13 @@ public class EventArrayAdapter extends ArrayAdapter<Event> {
 
         //Parse date string
         String[] wordList = event.getEventDate().split(" ");
-        String parsedString = wordList[0] + " " + wordList[1] + ", " + wordList[wordList.length - 1];
+        String parsedString = "";
+
+        if (wordList.length >= 2) {
+            parsedString = wordList[0] + " " + wordList[1] + ", " + wordList[wordList.length - 1];
+        } else {
+            // Handle the case where wordList doesn't have enough elements
+        }
 
         eventTitle.setText(event.getEventTitle());
         eventDate.setText(parsedString);

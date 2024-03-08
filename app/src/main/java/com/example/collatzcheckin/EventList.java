@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
+import com.example.collatzcheckin.attendee.User;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,18 +57,22 @@ public class EventList extends AppCompatActivity {
                     eventDataList.clear();
 
                     for (QueryDocumentSnapshot doc : querySnapshots) {
-                        if (!user.getUid().equals(doc.getString("Event Organizer"))) {
+                        String eventOrganizer = doc.getString("Event Organizer");
+                        if (user.getUid() != null && eventOrganizer != null && !user.getUid().equals(eventOrganizer)) {
                             continue;
                         }
                         String eventTitle = doc.getId();
-                        String eventOrganizer = (doc.getString("Event Organizer"));
                         String eventDate = doc.getString("Event Date");
                         String eventDescription = doc.getString("Event Description");
                         String eventPoster = doc.getString("Event Poster");
                         String eventLocation = doc.getString("Event Location");
                         String memberLimit = doc.getString("Member Limit");
+                        int parsedMemberLimit = 0; // Default value, you can change it based on your requirements
 
-                        eventDataList.add(new Event(eventTitle, eventOrganizer, eventDate, eventDescription, eventPoster, eventLocation, Integer.parseInt(memberLimit)));
+                        if (memberLimit != null && !memberLimit.isEmpty()) {
+                            parsedMemberLimit = Integer.parseInt(memberLimit);
+                        }
+                        eventDataList.add(new Event(eventTitle, eventOrganizer, eventDate, eventDescription, eventPoster, eventLocation, parsedMemberLimit));
                     }
 
                     eventArrayAdapter.notifyDataSetChanged();
@@ -92,6 +96,14 @@ public class EventList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 changeCreateEvent(user);
+            }
+        });
+        Button backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Log.d("yes","no");
+               finish();
             }
         });
     }
