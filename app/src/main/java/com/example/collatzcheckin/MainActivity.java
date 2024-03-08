@@ -50,8 +50,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        String uuidVerify = authentication.identifyUser();
 
-        if(authentication.updateUI(MainActivity.this)) {
+        if(authentication.updateUI(MainActivity.this) || (uuidVerify==null)) {
             Intent i = new Intent(MainActivity.this, UpdateProfileActivity.class);
             startActivity(i);
         }
