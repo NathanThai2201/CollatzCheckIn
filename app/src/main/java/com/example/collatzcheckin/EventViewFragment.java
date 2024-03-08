@@ -111,7 +111,7 @@ public class EventViewFragment extends Fragment {
         editEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity)getActivity()).showEditEvent();
+                ((MainActivity)getActivity()).showEditEvent(event);
             }
         });
         return view;

@@ -49,9 +49,13 @@ public class EditEventFragment extends Fragment {
     StorageReference storageReference;
     ImageView posterImage;
     EventDB db;
+    Event event;
     private TextInputEditText eventDescriptionInput;
     private TextInputEditText eventDateInput;
     private TextInputEditText eventLocationInput;
+    public EditEventFragment(Event event) {
+        this.event = event;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -112,7 +116,7 @@ public class EditEventFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity)getActivity()).showEventView();
+                ((MainActivity)getActivity()).showEventView(event);
             }
         });
         selectPosterButton.setOnClickListener(new View.OnClickListener() {
