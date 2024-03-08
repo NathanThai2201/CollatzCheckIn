@@ -16,6 +16,12 @@ public class CreateEvent extends AppCompatActivity {
     TextView eventDescription;
     TextView eventLimit;
     User user;
+    /**
+     * Method to run on creation of the activity. Handles create event
+     * @param savedInstanceState If the activity is being re-initialized after
+     *                           previously being shut down then this Bundle contains the data it most
+     *                           recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +45,13 @@ public class CreateEvent extends AppCompatActivity {
         addEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Get values
                 String title = eventTitle.getText().toString();
                 String date = eventDate.getText().toString();
                 String location = eventLocation.getText().toString();
                 String description = eventDescription.getText().toString();
 
+                //Update user and event db
                 EventDB db = new EventDB();
                 AttendeeDB userDb = new AttendeeDB();
                 Event event = new Event(title, user.getUid(), date, description, "URL", location, 333);
@@ -54,6 +62,7 @@ public class CreateEvent extends AppCompatActivity {
             }
         });
 
+        //Return without creating an event
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

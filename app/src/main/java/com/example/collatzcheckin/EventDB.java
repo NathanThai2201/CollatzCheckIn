@@ -21,7 +21,9 @@ import java.util.Map;
 public class EventDB {
     private EventDBConnector eventDB;
     public CollectionReference eventRef;
-
+    /**
+     * This is a constructor for the eventDB
+     * */
     public EventDB() {
         this.eventDB = new EventDBConnector();
         this.eventRef = eventDB.db.collection("events");

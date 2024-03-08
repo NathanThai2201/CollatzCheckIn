@@ -7,6 +7,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class EventDBConnector {
     public FirebaseFirestore db;
 
+/**
+ * This is a constructor for EventDBConnector
+ */
     public  EventDBConnector() {
         this.db = FirebaseFirestore.getInstance();
     }

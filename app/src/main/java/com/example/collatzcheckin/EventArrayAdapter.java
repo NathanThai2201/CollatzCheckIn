@@ -1,6 +1,7 @@
 package com.example.collatzcheckin;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,17 +20,26 @@ public class EventArrayAdapter extends ArrayAdapter<Event> {
     private Context context;
 
 
-    //Constructor
+    /**
+     * Constructor for EventArrayAdapter
+     * @param context
+     * @param events
+            */
     public EventArrayAdapter(Context context, ArrayList<Event> events) {
         super(context, 0, events);
         this.events = events;
         this.context = context;
     }
-
+    /**
+     * Constructor for EventArrayAdapter
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return View
+     */
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-//        return super.getView(position, convertView, parent);
         View view = convertView;
 
         if(view == null){
