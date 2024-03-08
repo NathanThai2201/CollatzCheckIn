@@ -7,7 +7,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ArrayList;
 
 import com.example.collatzcheckin.admin.controls.events.AdminEventListFragment;
@@ -122,4 +128,18 @@ public class MainActivity extends AppCompatActivity {
                 .addToBackStack(null)
                 .commit();
     }
+    public void showEditEvent() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new EditEventFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void showEventView() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new EventViewFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+
 }

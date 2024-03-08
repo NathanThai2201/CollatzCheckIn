@@ -3,13 +3,14 @@ package com.example.collatzcheckin;
 
 public class Event {
     private String eventTitle;
+    private String eventID;
     private String eventOrganizer;
     private String eventDate;
     private String eventDescription;
     private String eventPoster;
     private String eventLocation;
     private int memberLimit;
-    public Event(String eventTitle, String eventOrganizer, String eventDate, String eventDescription, String eventPoster, String eventLocation, int memberLimit) {
+    public Event(String eventID, String eventTitle, String eventOrganizer, String eventDate, String eventDescription, String eventPoster, String eventLocation, int memberLimit) {
         this.eventTitle = eventTitle;
         this.eventOrganizer = eventOrganizer;
         this.eventDate = eventDate;
@@ -17,25 +18,8 @@ public class Event {
         this.eventPoster = eventPoster;
         this.eventLocation = eventLocation;
         this.memberLimit = memberLimit;
+        this.eventID = eventID;
     }
-    public Event(String eventTitle, String eventOrganizer, String eventDate, String eventDescription, String eventPoster, int memberLimit) {
-        this.eventTitle = eventTitle;
-        this.eventOrganizer = eventOrganizer;
-        this.eventDate = eventDate;
-        this.eventDescription = eventDescription;
-        this.eventPoster = eventPoster;
-        this.memberLimit = memberLimit;
-    }
-
-    public Event(String eventTitle, String eventOrganizer, String eventDate, String eventDescription, String eventPoster, String eventLocation) {
-        this.eventTitle = eventTitle;
-        this.eventOrganizer = eventOrganizer;
-        this.eventDate = eventDate;
-        this.eventDescription = eventDescription;
-        this.eventPoster = eventPoster;
-        this.eventLocation = eventLocation;
-    }
-
     public String getEventTitle() {
         return eventTitle;
     }
@@ -90,5 +74,12 @@ public class Event {
 
     public void setEventLocation(String eventLocation) {
         this.eventLocation = eventLocation;
+    }
+    public String getId() {
+        return eventID;
+    }
+
+    public void setId(String eventID) {
+        this.eventID = eventID;
     }
 }

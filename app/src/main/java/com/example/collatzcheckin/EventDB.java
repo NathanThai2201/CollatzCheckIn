@@ -33,5 +33,4 @@ public class EventDB {
         eventRef.document(event.getEventTitle()).set(eventData);
 
     }
-
 }

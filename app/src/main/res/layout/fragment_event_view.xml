@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg"
     tools:context=".MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/poster_image"
+        android:src="@drawable/ic_launcher_background"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout2"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
@@ -46,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
             android:text="Edmonton AB, XXX-XXX"
             android:textSize="24sp"
             android:textStyle="bold"
