@@ -24,6 +24,8 @@ public class AttendeeDB {
         this.userRef = userDB.db.collection("user");
     }
 
+
+
     /**
      * This returns the object 'CollectionReference' which holds information about the
      * collection that is being interacted with
@@ -57,6 +59,7 @@ public class AttendeeDB {
                 } else {
                     Log.d("TAG", "get failed with ", task.getException());
                 }
+
             }
         });
         return userData;

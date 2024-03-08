@@ -3372,6 +3372,7 @@ id event_month
 id event_name
 id event_time
 id event_title
+id event_view_back_button
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3840,6 +3841,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_attendee_list
 layout activity_create_event
+layout activity_event_view
 layout activity_main
 layout activity_update_profile
 layout browser_actions_context_menu_page

@@ -10,11 +10,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 
+import java.net.Authenticator;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.example.collatzcheckin.admin.controls.events.AdminEventListFragment;
 import com.example.collatzcheckin.admin.controls.events.AdminEventViewFragment;
@@ -53,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(MainActivity.this, UpdateProfileActivity.class);
             startActivity(i);
         }
+        String uuid = authentication.identifyUser();
+        AttendeeDB db = new AttendeeDB();
+        HashMap<String,String> userData = db.findUser(uuid);
+        user = new User(userData.get("Uid"), userData.get("Name"), userData.get("Email"));
 
         EventDB eventDB = new EventDB();
         // creating the nav bar
@@ -67,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
             }
             //TODO: navigate to home page (where users can browse events)
             if (iconPressed == R.id.home) {
-                replaceFragment(new EventList());
+                Intent i = new Intent(this,EventList.class);
+                i.putExtra("user", user);
+                startActivity(i);
             }
             //TODO: navigate to camera so users can scan QR code
 

@@ -79,6 +79,7 @@ id event_month
 id event_name
 id event_time
 id event_title
+id event_view_back_button
 id frame_layout
 id geo
 id geotext
@@ -114,6 +115,7 @@ id usernameText
 id view_attendee
 layout activity_attendee_list
 layout activity_create_event
+layout activity_event_view
 layout activity_main
 layout activity_update_profile
 layout content

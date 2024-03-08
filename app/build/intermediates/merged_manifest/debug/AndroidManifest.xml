@@ -36,13 +36,16 @@
         android:testOnly="true"
         android:theme="@style/Theme.CollatzCheckIn" >
         <activity
+            android:name="com.example.collatzcheckin.EventView"
+            android:exported="false" />
+        <activity
             android:name="com.example.collatzcheckin.CreateEvent"
             android:exported="false" />
         <activity
             android:name="com.example.collatzcheckin.AttendeeList"
             android:exported="false" />
         <activity
-            android:name="com.example.collatzcheckin.EventView"
+            android:name="com.example.collatzcheckin.EventList"
             android:exported="false" />
         <activity
             android:name="com.example.collatzcheckin.MainActivity"

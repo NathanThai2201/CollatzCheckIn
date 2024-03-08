@@ -1,8 +1,5 @@
 package com.example.collatzcheckin;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -12,20 +9,12 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.collatzcheckin.authentication.AnonAuthentication;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -38,25 +27,25 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
-public class EventList extends Fragment {
+public class EventList extends AppCompatActivity {
     ListView eventList;
     ArrayAdapter<Event> eventArrayAdapter;
     ArrayList<Event> eventDataList;
-    private final AnonAuthentication authentication = new AnonAuthentication();
-
-
     View view;
     EventDB db;
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.event_view_organizer, container, false);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.event_view_organizer);
+        Intent intent = getIntent();
+        User user = (User) intent.getSerializableExtra("user");
 
         db = new EventDB();
-        eventList = view.findViewById(R.id.event_list_view);
+        eventList = findViewById(R.id.event_list_view);
         eventDataList = new ArrayList<>();
-        eventArrayAdapter = new EventArrayAdapter(getContext(), eventDataList);
+        eventArrayAdapter = new EventArrayAdapter(this, eventDataList);
         eventList.setAdapter(eventArrayAdapter);
-        String uuid = authentication.identifyUser();
-        User user = getUser(uuid);
+
         db.eventRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot querySnapshots, @Nullable FirebaseFirestoreException error) {
@@ -93,39 +82,57 @@ public class EventList extends Fragment {
             {
 
                 Event event = (Event)adapter.getItemAtPosition(position);
-//                change(event);
+                change(event);
             }
         });
 
 
-        Button createEventButton = view.findViewById(R.id.create_event);
+        Button createEventButton = findViewById(R.id.create_event);
         createEventButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 changeCreateEvent(user);
             }
         });
-        return view;
     }
 
-//    public void change(Event event) {
-//        Intent myIntent = new Intent(this, EventView.class);
-//        myIntent.putExtra("event", event);
-//        startActivity(myIntent);
-//    }
+    public void change(Event event) {
+        Intent myIntent = new Intent(this, EventView.class);
+        myIntent.putExtra("event", event);
+        startActivity(myIntent);
+    }
 
     public void changeCreateEvent(User user) {
-        Intent myIntent = new Intent(getContext(), CreateEvent.class);
+        Intent myIntent = new Intent(this, CreateEvent.class);
         myIntent.putExtra("user", user);
         startActivity(myIntent);
     }
 
-
-    public User getUser(String uuid) {
-        AttendeeDB db = new AttendeeDB();
-
-        HashMap<String,String> userData= db.findUser(uuid);
-        return new User(userData.get("Uid"), userData.get("Name"), userData.get("Email"));
-    }
+//    public void showAttendeeList(Event e) {
+//        getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.event_frame_view, new AttendeeListFragment(e))
+//                .addToBackStack(null)
+//                .commit();
+//    }
+//    public void showEventList() {
+//        getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.event_frame_view, new EventListFragment())
+//                .addToBackStack(null)
+//                .commit();
+//    }
+//
+//    public void showEventView(Event e) {
+//        getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.event_frame_view, new EventViewFragment(e))
+//                .addToBackStack(null)
+//                .commit();
+//    }
+//
+//    public void showCreateEvent() {
+//        getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.event_frame_view, new AddEventFragment())
+//                .addToBackStack(null)
+//                .commit();
+//    }
 
 }
