@@ -68,7 +68,7 @@ public class AnonAuthentication {
      */
     public boolean updateUI(Context context) {
         this.context = context;
-        final Boolean[] createProfile = {false};
+        final Boolean[] createProfile = {true};
 
         if (getUser() == null) {
             mAuth.signInAnonymously()
