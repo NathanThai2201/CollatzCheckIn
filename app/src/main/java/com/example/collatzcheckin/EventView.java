@@ -20,6 +20,9 @@ import com.google.firebase.storage.StorageReference;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * EventView of the application, allows users to view and select their list of events
+ */
 public class EventView extends AppCompatActivity {
     Uri imageUri;
     StorageReference storageReference;
@@ -32,7 +35,12 @@ public class EventView extends AppCompatActivity {
     ImageView posterImage;
 
 
-
+    /**
+     * Method to run on creation of the activity. Handles user profile editing abilities
+     * @param savedInstanceState If the activity is being re-initialized after
+     *                           previously being shut down then this Bundle contains the data it most
+     *                           recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
