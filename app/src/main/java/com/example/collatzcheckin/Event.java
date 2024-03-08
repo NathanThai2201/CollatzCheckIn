@@ -1,18 +1,20 @@
 package com.example.collatzcheckin;
 
 
+import java.io.Serializable;
+
 /**
  * This is a class that defines an event.
  */
-public class Event {
+public class Event implements Serializable {
     private String eventTitle;
-    private Organizer eventOrganizer;
+    private String eventOrganizer;
     private String eventDate;
     private String eventDescription;
     private String eventPoster;
     private String eventLocation;
     private int memberLimit;
-    public Event(String eventTitle, Organizer eventOrganizer, String eventDate, String eventDescription, String eventPoster, String eventLocation, int memberLimit) {
+    public Event(String eventTitle, String eventOrganizer, String eventDate, String eventDescription, String eventPoster, String eventLocation, int memberLimit) {
         this.eventTitle = eventTitle;
         this.eventOrganizer = eventOrganizer;
         this.eventDate = eventDate;
@@ -33,10 +35,10 @@ public class Event {
     }
 
     public String getEventOrganizer() {
-        return eventOrganizer.getName();
+        return this.eventOrganizer;
     }
 
-    public void setEventOrganizer(Organizer eventOrganizer) {
+    public void setEventOrganizer(String eventOrganizer) {
         this.eventOrganizer = eventOrganizer;
     }
 
