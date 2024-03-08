@@ -4,7 +4,24 @@
             "outputFile": "com.example.collatzcheckin.app-mergeDebugResources-36:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/nathanthai/AndroidStudioProjects/Collatz301/app/src/main/res/values-night/themes.xml",
+                    "source": "/Users/nathanthai/.gradle/caches/transforms-3/9f9686aa69ef96e09752468c17c9646c/transformed/appcompat-1.6.1/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593,687",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "120,204,288,384,486,588,682,771"
+                    },
+                    "to": {
+                        "startLines": "6,7,8,9,10,11,12,38",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "177,247,331,415,511,613,715,3570",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "242,326,410,506,608,710,804,3654"
+                    }
+                },
+                {
+                    "source": "/Users/nathanthai/AndroidStudioProjects/indev/Collatz301/app/src/main/res/values-night/themes.xml",
                     "from": {
                         "startLines": "2,7",
                         "startColumns": "4,4",
@@ -20,23 +37,6 @@
                         "endLines": "5,42",
                         "endColumns": "12,12",
                         "endOffsets": "172,3891"
-                    }
-                },
-                {
-                    "source": "/Users/nathanthai/.gradle/caches/transforms-3/9f9686aa69ef96e09752468c17c9646c/transformed/appcompat-1.6.1/res/values-night-v8/values-night-v8.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,209,293,389,491,593,687",
-                        "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "120,204,288,384,486,588,682,771"
-                    },
-                    "to": {
-                        "startLines": "6,7,8,9,10,11,12,38",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "177,247,331,415,511,613,715,3570",
-                        "endColumns": "69,83,83,95,101,101,93,88",
-                        "endOffsets": "242,326,410,506,608,710,804,3654"
                     }
                 },
                 {
