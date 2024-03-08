@@ -59,7 +59,6 @@ public class AttendeeDB {
                 } else {
                     Log.d("TAG", "get failed with ", task.getException());
                 }
-
             }
         });
         return userData;
