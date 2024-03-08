@@ -1,6 +1,7 @@
 package com.example.collatzcheckin;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -20,7 +21,10 @@ public class EventListTest {
     public ActivityScenarioRule<MainActivity> scenario = new ActivityScenarioRule<MainActivity>(MainActivity.class);
 
     @Test
-    public void eventListView() {
+    public void eventListView() throws InterruptedException {
+        Thread.sleep(5000);
+        onView(withId(R.id.home)).perform(click());
+        Thread.sleep(5000);
         onView(withId(R.id.event_list_view)).check(matches(isDisplayed()));
     }
 
