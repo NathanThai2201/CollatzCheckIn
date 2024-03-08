@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="attendee_list_bg">#B3DDEBD1</color>
+    <color name="attendee_list_heading">#80DEDEDE</color>
+    <color name="attendee_list_sub_heading">#D9D9D9</color>
+    <color name="black">#FF000000</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="grey">#80DEDEDE</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="primary_button">#0A6C2C</color>
+    <color name="purple">#8692f7</color>
+    <color name="secondary_button">#3FA03D</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">CollatzCheckIn</string>
+    <string name="gcm_defaultSenderId" translatable="false">584741750697</string>
+    <string name="google_api_key" translatable="false">AIzaSyDPuC4ua2gUisWhXkaemVEpTr4yoSrHEXU</string>
+    <string name="google_app_id" translatable="false">1:584741750697:android:5ef3d711cf35f6a32066b8</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDPuC4ua2gUisWhXkaemVEpTr4yoSrHEXU</string>
+    <string name="google_storage_bucket" translatable="false">collatzcheckin.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="project_id" translatable="false">collatzcheckin</string>
+    <style name="Base.Theme.CollatzCheckIn" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.CollatzCheckIn" parent="Base.Theme.CollatzCheckIn"/>
+    <style name="ThemeOverlay.CollatzCheckIn.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
+    <style name="Widget.Theme.CollatzCheckIn.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+    <declare-styleable name="FullscreenAttrs">
+        <attr format="color" name="fullscreenBackgroundColor"/>
+        <attr format="color" name="fullscreenTextColor"/>
+    </declare-styleable>
+</resources>

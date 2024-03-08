@@ -1,15 +1,15 @@
-#Fri Mar 08 11:29:34 MST 2024
-base.0=/Users/nathanthai/AndroidStudioProjects/Collatz301/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-base.1=/Users/nathanthai/AndroidStudioProjects/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.10=/Users/nathanthai/AndroidStudioProjects/Collatz301/app/build/intermediates/dex/debug/mergeExtDexDebug/classes3.dex
-base.2=/Users/nathanthai/AndroidStudioProjects/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/10/classes.dex
-base.3=/Users/nathanthai/AndroidStudioProjects/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/12/classes.dex
-base.4=/Users/nathanthai/AndroidStudioProjects/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/14/classes.dex
-base.5=/Users/nathanthai/AndroidStudioProjects/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/3/classes.dex
-base.6=/Users/nathanthai/AndroidStudioProjects/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/5/classes.dex
-base.7=/Users/nathanthai/AndroidStudioProjects/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/7/classes.dex
-base.8=/Users/nathanthai/AndroidStudioProjects/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/9/classes.dex
-base.9=/Users/nathanthai/AndroidStudioProjects/Collatz301/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+#Fri Mar 08 14:33:22 MST 2024
+base.0=/Users/nathanthai/AndroidStudioProjects/indev/Collatz301/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/Users/nathanthai/AndroidStudioProjects/indev/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.10=/Users/nathanthai/AndroidStudioProjects/indev/Collatz301/app/build/intermediates/dex/debug/mergeExtDexDebug/classes3.dex
+base.2=/Users/nathanthai/AndroidStudioProjects/indev/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/10/classes.dex
+base.3=/Users/nathanthai/AndroidStudioProjects/indev/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/12/classes.dex
+base.4=/Users/nathanthai/AndroidStudioProjects/indev/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/14/classes.dex
+base.5=/Users/nathanthai/AndroidStudioProjects/indev/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/3/classes.dex
+base.6=/Users/nathanthai/AndroidStudioProjects/indev/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/5/classes.dex
+base.7=/Users/nathanthai/AndroidStudioProjects/indev/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/7/classes.dex
+base.8=/Users/nathanthai/AndroidStudioProjects/indev/Collatz301/app/build/intermediates/dex/debug/mergeProjectDexDebug/9/classes.dex
+base.9=/Users/nathanthai/AndroidStudioProjects/indev/Collatz301/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.10=classes3.dex
