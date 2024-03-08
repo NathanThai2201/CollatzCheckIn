@@ -1,7 +1,7 @@
 
 package com.example.collatzcheckin.admin.controls.events;
 
-        import android.os.Bundle;
+import android.os.Bundle;
 
         import androidx.annotation.Nullable;
         import androidx.fragment.app.Fragment;

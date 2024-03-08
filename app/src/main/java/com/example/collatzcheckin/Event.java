@@ -8,6 +8,7 @@ public class Event {
     private String eventDate;
     private String eventDescription;
     private String eventPoster;
+    private String eventLocation;
     private int memberLimit;
     public Event(String eventTitle, User eventOrganizer, String eventDate, String eventDescription, String eventPoster, int memberLimit) {
         this.eventTitle = eventTitle;
@@ -15,7 +16,7 @@ public class Event {
         this.eventDate = eventDate;
         this.eventDescription = eventDescription;
         this.eventPoster = eventPoster;
-        this.eventLocation = eventLocation;
+        //this.eventLocation = eventLocation;
         this.memberLimit = memberLimit;
     }
 
