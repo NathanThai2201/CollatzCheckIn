@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+import java.util.ArrayList;
 
 import com.example.collatzcheckin.attendee.User;
 import com.example.collatzcheckin.attendee.profile.ProfileFragment;
@@ -21,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
     private final AnonAuthentication authentication = new AnonAuthentication();
     private User user;
+    private Button viewAttendeeButton;
+    private ArrayList<String> data;
+    EventDB db = new EventDB();
 
     /**
      * Method to run on creation of the activity. Handles user authentication and creates the bottomnav fragment
@@ -32,15 +37,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.event_view_organizer);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         if(authentication.updateUI(MainActivity.this)) {
             Intent i = new Intent(MainActivity.this, UpdateProfileActivity.class);
             startActivity(i);
         }
 
+        showAdminEventList();
+        EventDB eventDB = new EventDB();
         // creating the nav bar
         // adds functionality to allow attendee to navigate
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnItemSelectedListener(item -> {
 
             int iconPressed= item.getItemId();
@@ -67,5 +74,48 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
+    }
+    public void showAttendeeList(Event e) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new AttendeeListFragment(e))
+                .addToBackStack(null)
+                .commit();
+    }
+    public void showEventList() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new EventListFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void showEventView(Event e) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new EventViewFragment(e))
+                .addToBackStack(null)
+                .commit();
+    }
+    public void showAdminEventList() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new AdminEventListFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+    public void showAdminEventView(Event e) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new AdminEventViewFragment(e))
+                .addToBackStack(null)
+                .commit();
+    }
+    public void showUserList() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_user, new UserListFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+    public void showAdminUserView(User user) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_user, new UserViewFragment(user))
+                .addToBackStack(null)
+                .commit();
     }
 }
