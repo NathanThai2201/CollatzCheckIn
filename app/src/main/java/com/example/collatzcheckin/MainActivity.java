@@ -54,7 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (querySnapshots != null) {
                     eventDataList.clear();
+
                     for (QueryDocumentSnapshot doc : querySnapshots) {
+                        if (!user.getUid().equals(doc.getString("Event Organizer"))) {
+                            continue;
+                        }
                         String eventTitle = doc.getId();
                         String eventOrganizer = (doc.getString("Event Organizer"));
                         String eventDate = doc.getString("Event Date");

@@ -31,6 +31,7 @@ public class CreateEvent extends AppCompatActivity {
 
 
 
+        Button backButton = findViewById(R.id.back_button_create_event);
 
 
         Button addEventButton = findViewById(R.id.add_event);
@@ -42,10 +43,23 @@ public class CreateEvent extends AppCompatActivity {
                 String date = eventDate.getText().toString();
                 String location = eventLocation.getText().toString();
                 String description = eventDescription.getText().toString();
+
                 EventDB db = new EventDB();
-               db.addEvent(new Event(title, user.getUid(), date, description, "URL", location, 333));
+                AttendeeDB userDb = new AttendeeDB();
+                Event event = new Event(title, user.getUid(), date, description, "URL", location, 333);
+                db.addEvent(event);
+                user.addOrganizingEvent(event);
+                userDb.addUser(user);
                 finish();
             }
         });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 }

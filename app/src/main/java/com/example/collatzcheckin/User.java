@@ -16,8 +16,8 @@ public class User implements Serializable {
     private String  pfp;
     private String username;
     private String email;
-    private List<Event> attendingEvents;
-    private List<Event> organizedEvents;
+    private List<String> attendingEvents;
+    private List<String> organizingEvents;
     private boolean notifications;
     private boolean geolocation;
     private boolean isOrganizer = false;
@@ -52,8 +52,8 @@ public class User implements Serializable {
         this.name = name;
         this.email = contactInformation;
         this.uid = uid;
-        this.attendingEvents = new ArrayList<Event>();
-        this.organizedEvents = new ArrayList<Event>();
+        this.organizingEvents = new ArrayList<String>();
+        this.attendingEvents = new ArrayList<String>();
         this.geolocation = false;
         this.notifications = false;
     }
@@ -70,7 +70,8 @@ public class User implements Serializable {
         this.name = name;
         this.email = contactInformation;
         this.uid = uid;
-        this.attendingEvents = new ArrayList<Event>();
+        this.organizingEvents = new ArrayList<String>();
+        this.attendingEvents = new ArrayList<String>();
         this.username = username;
         this.geolocation = false;
         this.notifications = false;
@@ -91,7 +92,8 @@ public class User implements Serializable {
         this.name = name;
         this.email = contactInformation;
         this.uid = uid;
-        this.attendingEvents = new ArrayList<Event>();
+        this.organizingEvents = new ArrayList<String>();
+        this.attendingEvents = new ArrayList<String>();
         this.username = username;
         this.geolocation = geolocation;
         this.notifications = notifications;
@@ -166,17 +168,24 @@ public class User implements Serializable {
      * Getter for a list of events that the user has signed up to attend
      * @return email
      */
-    public List<Event> getEvents() {
-        return attendingEvents;
+    public List<String> getAttendingEvents() {
+        return this.attendingEvents;
+    }
+    public List<String> getOrganizingEvents() {
+        return this.organizingEvents;
     }
 
     /**
      * Add an event to the list of events that the user is attending
      * @param event event the user will be attending
      */
-    public void addEvent(Event event) {
-        attendingEvents.add(event);
+    public void addOrganizingEvent(Event event) {
+
+        organizingEvents.add(event.getEventTitle());
     }
+    public void AddAttendingEvent(Event event) {
+        attendingEvents.add(event.getEventTitle());}
+
 
     /**
      * Getter for if user has geolocation enabled
@@ -190,11 +199,11 @@ public class User implements Serializable {
      * Convert boolean value to string equivalent
      * @return string equivalent of geolocation perferences
      */
-    public String getGeolocation() {
+    public Boolean getGeolocation() {
         if(geolocation) {
-            return "true";
+            return true;
         } else {
-            return "false";
+            return false;
         }
     }
 
@@ -214,11 +223,11 @@ public class User implements Serializable {
      * Convert boolean value to string equivalent
      * @return string equivalent of notification perferences
      */
-    public String getNotifications() {
+    public boolean getNotifications() {
         if(notifications) {
-            return "true";
+            return true;
         } else {
-            return "false";
+            return false;
         }
     }
 
@@ -254,11 +263,4 @@ public class User implements Serializable {
         isOrganizer = organizer;
     }
 
-    public List<Event> getOrganizedEvents() {
-        return organizedEvents;
-    }
-
-    public void setOrganizedEvents(List<Event> organizedEvents) {
-        this.organizedEvents = organizedEvents;
-    }
 }
