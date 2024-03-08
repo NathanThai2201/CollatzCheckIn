@@ -113,12 +113,12 @@ public class EditEventFragment extends Fragment {
                 submitChanges();
             }
         });
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((MainActivity)getActivity()).showEventView(event);
-            }
-        });
+//        backButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ((MainActivity)getActivity()).showEventView(event);
+//            }
+//        });
         selectPosterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -68,16 +68,16 @@ public class AdminEventViewFragment extends Fragment {
 
                 // Call the removeEvent method passing event as parameter
                 administratorDB.removeEvent(event);
-                ((MainActivity) getActivity()).showEventList();
+//                ((MainActivity) getActivity()).showEventList();
             }
         });
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((MainActivity) getActivity()).showEventList();
-            }
-        });
+//        backButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ((MainActivity) getActivity()).showEventList();
+//            }
+//        });
         return view;
 
     }

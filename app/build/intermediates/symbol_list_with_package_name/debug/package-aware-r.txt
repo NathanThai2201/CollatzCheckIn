@@ -603,6 +603,8 @@ attr forceApplySystemWindowInsetTop
 attr forceDefaultNavigationOnClickListener
 attr foregroundInsidePadding
 attr framePosition
+attr fullscreenBackgroundColor
+attr fullscreenTextColor
 attr gapBetweenBars
 attr gestureInsetBottomIgnored
 attr goIcon
@@ -1364,12 +1366,17 @@ color background_floating_material_light
 color background_material_dark
 color background_material_light
 color black
+color black_overlay
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
 color bright_foreground_inverse_material_light
 color bright_foreground_material_dark
 color bright_foreground_material_light
+color browser_actions_bg_grey
+color browser_actions_divider_color
+color browser_actions_text_color
+color browser_actions_title_color
 color button_material_dark
 color button_material_light
 color cardview_dark_background
@@ -1436,6 +1443,10 @@ color foreground_material_light
 color grey
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color light_blue_600
+color light_blue_900
+color light_blue_A200
+color light_blue_A400
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2098,6 +2109,7 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
+color purple
 color ripple_material_dark
 color ripple_material_light
 color secondary_button
@@ -2196,6 +2208,8 @@ dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen appcompat_dialog_background_inset
+dimen browser_actions_context_menu_max_width
+dimen browser_actions_context_menu_min_padding
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
@@ -2991,6 +3005,9 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable baseline_camera_alt_24
+drawable baseline_home_24
+drawable baseline_person_24
 drawable bg
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -3025,6 +3042,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable event_list_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
@@ -3188,8 +3206,10 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_event
 id adjust_height
 id adjust_width
+id admin_button
 id alertTitle
 id aligned
 id all
@@ -3202,11 +3222,16 @@ id anticipate
 id arc
 id asConfigured
 id async
+id attendee_list
+id attending_button
 id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
 id back_button
+id back_button_create_event
+id back_button_event_view
+id back_button_user_view
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3214,15 +3239,22 @@ id beginning
 id bestChoice
 id blocking
 id bottom
+id bottomNavigationView
 id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id browser_actions_header_text
+id browser_actions_menu_item_icon
+id browser_actions_menu_item_text
+id browser_actions_menu_items
+id browser_actions_menu_view
 id button
 id buttonPanel
 id cache_measures
 id callMeasure
 id cancel_button
+id cardView
 id carryVelocity
 id center
 id centerCrop
@@ -3249,7 +3281,10 @@ id constraintLayout
 id constraintLayout2
 id constraintLayout3
 id constraintLayout4
+id constraintLayout5
+id constraintLayout6
 id container
+id container_user
 id content
 id contentPanel
 id contiguous
@@ -3258,6 +3293,7 @@ id coordinator
 id cos
 id counterclockwise
 id cradle
+id create_event
 id currentState
 id custom
 id customPanel
@@ -3268,6 +3304,8 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id delete_event
+id delete_user
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -3283,6 +3321,7 @@ id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
 id disjoint
+id done_button
 id dragAnticlockwise
 id dragClockwise
 id dragDown
@@ -3297,10 +3336,23 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editEmail
+id editName
+id editUsername
 id edit_event
+id edit_event_date
+id edit_event_description
+id edit_event_limit
+id edit_event_location
+id edit_event_name
 id edit_query
+id editpfp
 id elastic
+id email
+id emailText
 id embed
+id enablegeo
+id enablenotif
 id end
 id endToStart
 id enterAlways
@@ -3310,11 +3362,16 @@ id event_day
 id event_description
 id event_description_input
 id event_frame_view
+id event_list
+id event_list_date
+id event_list_title
+id event_list_view
 id event_location
 id event_location_input
 id event_month
 id event_name
 id event_time
+id event_title
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3333,8 +3390,11 @@ id flip
 id floating
 id forever
 id fragment_container_view_tag
+id frame_layout
 id frost
 id fullscreen_header
+id geo
+id geotext
 id ghost_view
 id ghost_view_holder
 id gone
@@ -3437,6 +3497,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id nameText
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3452,9 +3513,11 @@ id noState
 id none
 id normal
 id north
+id notif
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id notiftext
 id off
 id on
 id onInterceptTouchReturnSwipe
@@ -3472,6 +3535,7 @@ id open_search_view_search_prefix
 id open_search_view_status_bar_spacer
 id open_search_view_toolbar
 id open_search_view_toolbar_container
+id organizer_button
 id outline
 id outward
 id overshoot
@@ -3486,16 +3550,19 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id pfp
 id pin
 id position
 id postLayout
 id poster_image
 id pressed
+id profile
 id progress_circular
 id progress_horizontal
 id radio
 id ratio
 id rectangles
+id remove
 id report_drawn
 id reverseSawtooth
 id right
@@ -3508,6 +3575,7 @@ id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
 id scale
+id scanner
 id screen
 id scroll
 id scrollIndicatorDown
@@ -3594,6 +3662,7 @@ id textView3
 id textView4
 id textView5
 id textView6
+id textView7
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3623,8 +3692,17 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id up_button
+id updateText
 id upload_poster_button
 id useLogo
+id user_email
+id user_list_view
+id user_name
+id user_name_display
+id user_uid
+id username
+id usernameText
 id vertical_only
 id view_attendee
 id view_offset_helper
@@ -3760,6 +3838,12 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_attendee_list
+layout activity_create_event
+layout activity_main
+layout activity_update_profile
+layout browser_actions_context_menu_page
+layout browser_actions_context_menu_row
 layout content
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3777,10 +3861,16 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout event_list_content
 layout event_view_organizer
-layout fragment_attendee_list
+layout fragment_admin_attendee_list
+layout fragment_admin_event_view
+layout fragment_admin_user_list
+layout fragment_admin_user_view
 layout fragment_edit_event
+layout fragment_event_list
 layout fragment_event_view
+layout list_item_user
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3838,10 +3928,14 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout profile_edit
+layout profile_fragment
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout user_view_organizer
+menu bottom_nav_bar
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
@@ -3904,11 +3998,15 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string copy_toast_msg
 string error_a11y_label
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string fallback_menu_item_copy_link
+string fallback_menu_item_open_in_browser
+string fallback_menu_item_share_link
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id
@@ -4667,6 +4765,7 @@ style ThemeOverlay_AppCompat_DayNight_ActionBar
 style ThemeOverlay_AppCompat_Dialog
 style ThemeOverlay_AppCompat_Dialog_Alert
 style ThemeOverlay_AppCompat_Light
+style ThemeOverlay_CollatzCheckIn_FullscreenContainer
 style ThemeOverlay_Design_TextInputEditText
 style ThemeOverlay_Material3
 style ThemeOverlay_Material3_ActionBar
@@ -5149,6 +5248,7 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style Widget_Theme_CollatzCheckIn_ButtonBar_Fullscreen
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
@@ -5208,6 +5308,7 @@ styleable FontFamilyFont android_font android_fontWeight android_fontStyle andro
 styleable ForegroundLinearLayout android_foreground android_foregroundGravity foregroundInsidePadding
 styleable Fragment android_name android_id android_tag
 styleable FragmentContainerView android_name android_tag
+styleable FullscreenAttrs fullscreenBackgroundColor fullscreenTextColor
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
 styleable ImageFilterView altSrc blendSrc brightness contrast crossfade imagePanX imagePanY imageRotate imageZoom overlay round roundPercent saturation warmth
@@ -5306,3 +5407,4 @@ styleable ViewTransition android_id SharedValue SharedValueId clearsTag duration
 styleable include constraintSet
 xml backup_rules
 xml data_extraction_rules
+xml image_share_filepaths

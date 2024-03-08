@@ -69,15 +69,15 @@ public class UserListFragment extends Fragment {
             }
         });
 
-        userList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapter, View v, int position, long arg3) {
-                User user = (User) adapter.getItemAtPosition(position);
-                // Handle user click, for example:
-                // Show user details or navigate to user profile
-                ((MainActivity) getActivity()).showAdminUserView(user);
-            }
-        });
+//        userList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapter, View v, int position, long arg3) {
+//                User user = (User) adapter.getItemAtPosition(position);
+//                // Handle user click, for example:
+//                // Show user details or navigate to user profile
+//                ((MainActivity) getActivity()).showAdminUserView(user);
+//            }
+//        });
 
         return view;
     }

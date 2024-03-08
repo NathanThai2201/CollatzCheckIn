@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.event_view_organizer);
+        setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         if(authentication.updateUI(MainActivity.this)) {
@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
 
-        showAdminEventList();
         EventDB eventDB = new EventDB();
         // creating the nav bar
         // adds functionality to allow attendee to navigate
@@ -67,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new ProfileFragment());
             }
             //TODO: navigate to home page (where users can browse events)
-
+            if (iconPressed == R.id.home) {
+                replaceFragment(new EventList());
+            }
             //TODO: navigate to camera so users can scan QR code
 
             return true;
@@ -85,25 +86,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
     }
-    public void showAttendeeList(Event e) {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.event_frame_view, new AttendeeListFragment(e))
-                .addToBackStack(null)
-                .commit();
-    }
-    public void showEventList() {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.event_frame_view, new EventListFragment())
-                .addToBackStack(null)
-                .commit();
-    }
 
-    public void showEventView(Event e) {
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.event_frame_view, new EventViewFragment(e))
-                .addToBackStack(null)
-                .commit();
-    }
+
+
+
     public void showAdminEventList() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.event_frame_view, new AdminEventListFragment())
