@@ -1,45 +1,92 @@
 package com.example.collatzcheckin;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.widget.Button;
 
-import com.example.collatzcheckin.attendee.profile.ProfileFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.collatzcheckin.admin.controls.events.AdminEventListFragment;
+import com.example.collatzcheckin.admin.controls.events.AdminEventViewFragment;
+import com.example.collatzcheckin.admin.controls.profile.UserListFragment;
+import com.example.collatzcheckin.admin.controls.profile.UserViewFragment;
+import com.example.collatzcheckin.attendee.AttendeeDB;
+import com.example.collatzcheckin.attendee.User;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    private Button viewAttendeeButton;
+    private ArrayList<String> data;
+    EventDB db = new EventDB();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.event_view_organizer);
+        showAdminEventList();
 
-        // creating the nav bar
-        // adds functionality to allow attendee to navigate
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnItemSelectedListener(item -> {
+        //setContentView(R.layout.user_view_organizer);
+        //showUserList();
 
-            int iconPressed= item.getItemId();
+//        Event e = new Event("Oilers vs Flames", new Organizer("Rogers"), "Mar 20 2024 20:00","Edmonton Oilers vs Calgary Flames", "URL", "Edmonton, AB", 10000);
 
-            // navigate to profile page
-            if (iconPressed == R.id.profile) {
-                replaceFragment(new ProfileFragment());
-            }
-            //TODO: navigate to home page (where users can browse events)
+        Event e2 = new Event("Testing", new Organizer("To Delete"), "APR 05 2024 21:00","Test Data for deletion", "URL", "Testing", 40000);
+//
 
-            //TODO: navigate to camera so users can scan QR code
+        EventDB eventDB = new EventDB();
+//        eventDB.addEvent(e);
 
-            return true;
-        });
+        eventDB.addEvent(e2);
+
+        //User u = new User("Test Deletion UID", "Delete Me", "Delete@deleteme.com");
+        //AttendeeDB attendeeDB = new AttendeeDB();
+        //attendeeDB.addUser(u);
+
+
+
+
     }
 
-    private void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout, fragment);
-        fragmentTransaction.commit();
+    public void showAttendeeList(Event e) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new AttendeeListFragment(e))
+                .addToBackStack(null)
+                .commit();
+    }
+    public void showEventList() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new EventListFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void showEventView(Event e) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new EventViewFragment(e))
+                .addToBackStack(null)
+                .commit();
+    }
+    public void showAdminEventList() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new AdminEventListFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+    public void showAdminEventView(Event e) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.event_frame_view, new AdminEventViewFragment(e))
+                .addToBackStack(null)
+                .commit();
+    }
+    public void showUserList() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_user, new UserListFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+    public void showAdminUserView(User user) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_user, new UserViewFragment(user))
+                .addToBackStack(null)
+                .commit();
     }
 }
