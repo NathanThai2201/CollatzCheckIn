@@ -18,9 +18,8 @@ import android.os.Bundle;
         import com.example.collatzcheckin.EventArrayAdapter;
         import com.example.collatzcheckin.EventDB;
         import com.example.collatzcheckin.MainActivity;
-        import com.example.collatzcheckin.Organizer;
         import com.example.collatzcheckin.R;
-        import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.EventListener;
         import com.google.firebase.firestore.FirebaseFirestoreException;
         import com.google.firebase.firestore.QueryDocumentSnapshot;
         import com.google.firebase.firestore.QuerySnapshot;
@@ -57,15 +56,18 @@ public class AdminEventListFragment extends Fragment {
                     eventDataList.clear();
                     for (QueryDocumentSnapshot doc : querySnapshots) {
                         String eventTitle = doc.getId();
-                        Organizer eventOrganizer = new Organizer(doc.getString("Event Organizer"));
+                        String eventOrganizer = doc.getString("Event Organizer");
                         String eventDate = doc.getString("Event Date");
                         String eventDescription = doc.getString("Event Description");
                         String eventPoster = doc.getString("Event Poster");
                         String eventLocation = doc.getString("Event Location");
                         String memberLimit = doc.getString("Member Limit");
 
-                        eventDataList.add(new Event(eventTitle, eventOrganizer, eventDate, eventDescription, eventPoster, eventLocation, Integer.parseInt(memberLimit)));
-                    }
+                        if (memberLimit != null) {
+                            eventDataList.add(new Event(eventTitle, eventOrganizer, eventDate, eventDescription, eventPoster, eventLocation, Integer.parseInt(memberLimit)));
+                        } else {
+                            eventDataList.add(new Event(eventTitle, eventOrganizer, eventDate, eventDescription, eventPoster, eventLocation));
+                        }}
 
                     eventArrayAdapter.notifyDataSetChanged();
                 }

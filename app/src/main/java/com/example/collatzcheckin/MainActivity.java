@@ -10,6 +10,10 @@ import android.os.Bundle;
 import android.widget.Button;
 import java.util.ArrayList;
 
+import com.example.collatzcheckin.admin.controls.events.AdminEventListFragment;
+import com.example.collatzcheckin.admin.controls.events.AdminEventViewFragment;
+import com.example.collatzcheckin.admin.controls.profile.UserListFragment;
+import com.example.collatzcheckin.admin.controls.profile.UserViewFragment;
 import com.example.collatzcheckin.attendee.User;
 import com.example.collatzcheckin.attendee.profile.ProfileFragment;
 import com.example.collatzcheckin.attendee.profile.UpdateProfileActivity;

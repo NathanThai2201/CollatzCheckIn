@@ -18,7 +18,7 @@ import java.util.HashMap;
  */
 public class AttendeeDB {
         private AttendeeDBConnecter userDB;
-        private CollectionReference userRef;
+        public CollectionReference userRef;
 
     /**
      * This constructs instance of database and sets the collection to 'user'

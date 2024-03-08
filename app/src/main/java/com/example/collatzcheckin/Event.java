@@ -1,23 +1,39 @@
 package com.example.collatzcheckin;
 
-import com.example.collatzcheckin.attendee.User;
 
 public class Event {
     private String eventTitle;
-    private User eventOrganizer;
+    private String eventOrganizer;
     private String eventDate;
     private String eventDescription;
     private String eventPoster;
     private String eventLocation;
     private int memberLimit;
-    public Event(String eventTitle, User eventOrganizer, String eventDate, String eventDescription, String eventPoster, int memberLimit) {
+    public Event(String eventTitle, String eventOrganizer, String eventDate, String eventDescription, String eventPoster, String eventLocation, int memberLimit) {
         this.eventTitle = eventTitle;
         this.eventOrganizer = eventOrganizer;
         this.eventDate = eventDate;
         this.eventDescription = eventDescription;
         this.eventPoster = eventPoster;
-        //this.eventLocation = eventLocation;
+        this.eventLocation = eventLocation;
         this.memberLimit = memberLimit;
+    }
+    public Event(String eventTitle, String eventOrganizer, String eventDate, String eventDescription, String eventPoster, int memberLimit) {
+        this.eventTitle = eventTitle;
+        this.eventOrganizer = eventOrganizer;
+        this.eventDate = eventDate;
+        this.eventDescription = eventDescription;
+        this.eventPoster = eventPoster;
+        this.memberLimit = memberLimit;
+    }
+
+    public Event(String eventTitle, String eventOrganizer, String eventDate, String eventDescription, String eventPoster, String eventLocation) {
+        this.eventTitle = eventTitle;
+        this.eventOrganizer = eventOrganizer;
+        this.eventDate = eventDate;
+        this.eventDescription = eventDescription;
+        this.eventPoster = eventPoster;
+        this.eventLocation = eventLocation;
     }
 
     public String getEventTitle() {
@@ -29,10 +45,10 @@ public class Event {
     }
 
     public String getEventOrganizer() {
-        return eventOrganizer.getName();
+        return eventOrganizer;
     }
 
-    public void setEventOrganizer(User eventOrganizer) {
+    public void setEventOrganizer(String eventOrganizer) {
         this.eventOrganizer = eventOrganizer;
     }
 
