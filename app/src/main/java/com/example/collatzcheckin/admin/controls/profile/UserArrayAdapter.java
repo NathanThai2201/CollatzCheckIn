@@ -14,17 +14,32 @@ import com.example.collatzcheckin.R;
 import com.example.collatzcheckin.attendee.User;
 
 import java.util.ArrayList;
-
+/**
+ *  This class extends ArrayAdapter to work with User data types
+ */
 public class UserArrayAdapter extends ArrayAdapter<User> {
     private ArrayList<User> users;
     private Context context;
 
+    /**
+     * Constructor for UserArrayAdapter
+     * @param context
+     * @param users The list of User objects to be displayed.
+     */
     public UserArrayAdapter(Context context, ArrayList<User> users) {
         super(context,0, users);
         this.users = users;
         this.context = context;
     }
 
+    /**
+     * Provides a View for each User object in the ListView.
+     *
+     * @param position    The position of the User object within the dataset
+     * @param convertView The old view to reuse when possible
+     * @param parent      The parent ViewGroup that this view will  be attached to
+     * @return The View corresponding to the User object at the specified position.
+     */
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

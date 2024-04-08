@@ -1,54 +1,55 @@
 package com.example.collatzcheckin.attendee.profile;
 
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
+import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+import com.example.collatzcheckin.AdminMainActivity;
 import com.example.collatzcheckin.R;
 import com.example.collatzcheckin.attendee.AttendeeDB;
+import com.example.collatzcheckin.attendee.AttendeeCallbackManager;
 import com.example.collatzcheckin.attendee.User;
 import com.example.collatzcheckin.authentication.AnonAuthentication;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
+import com.example.collatzcheckin.utils.FirebaseFindUserCallback;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.Serializable;
-import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * ProfileFragment displays user their profile information
  */
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements FirebaseFindUserCallback {
 
-    Button update;
-    Button remove;
+    Button update, remove, admin;
     User user;
-    TextView name, username, email, geo, notification;
+    TextView name, email, geo, notification;
     ImageView pfp;
     private String uuid;
     private final AnonAuthentication authentication = new AnonAuthentication();
     private final AttendeeDB attendeeDB = new AttendeeDB();
-    HashMap<String, String> userData = new HashMap<>();
+    AttendeeCallbackManager attendeeFirebaseManager = new AttendeeCallbackManager();
+
 
     /**
      * This constructs an instance of ProfileFragment
@@ -70,21 +71,14 @@ public class ProfileFragment extends Fragment {
      * @return The root view of the fragment's layout hierarchy.
      */
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.profile_fragment, container, false);
-
-        update = view.findViewById(R.id.up_button);
-        remove = view.findViewById(R.id.remove);
-        name = view.findViewById(R.id.nameText);
-        username = view.findViewById(R.id.usernameText);
-        email = view.findViewById(R.id.emailText);
-        pfp = view.findViewById(R.id.pfp);
-        geo = view.findViewById(R.id.geotext);
-        notification = view.findViewById(R.id.notiftext);
-
+        initViews(view);
         uuid = authentication.identifyUser();
-        getUser(uuid);
+        // Call readData method from FirebaseManager class
+        attendeeFirebaseManager.readData(uuid, this);
 
-        //lauches a new activity and sends user data and recives updated info
+        //launches a new activity and sends user data and receives user info from ProfileFragment
         ActivityResultLauncher<Intent> launchEditProfileActivity = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -92,114 +86,134 @@ public class ProfileFragment extends Fragment {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
                         assert data != null;
-                        User updatedUser = (User) data.getSerializableExtra("updatedUser");
-                        assert updatedUser != null;
-                        name.setText(updatedUser.getName());
-                        username.setText(updatedUser.getUsername());
-                        email.setText(updatedUser.getEmail());
-                        if(updatedUser.isGeolocation()) {
-                            geo.setText("enabled");
-                        } else {
-                            geo.setText("disabled");
-                        }
-
-                        if(updatedUser.isNotifications()) {
-                            notification.setText("enabled");
-                        } else {
-                            notification.setText("disabled");
-                        }
-                        if (updatedUser.getPfp() != null) {
-                            pfp.setImageURI(Uri.parse(updatedUser.getPfp()));
-                        }
+                        user = (User) data.getSerializableExtra("updatedUser");
+                        setData(user);
                     }
                 }
         );
 
-
-
+        // send updated info to ProfileFragment
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), EditProfileActivity.class);
-                boolean geo_value;
-                boolean notif_value;
-                String user_name = name.getText().toString();
-                String user_username = username.getText().toString();
-                String user_email = email.getText().toString();
-                String geo_settings = geo.getText().toString();
-                String notif_settings = notification.getText().toString();
-                if(geo_settings == "enabled") {
-                    geo_value = true;
-                } else {
-                    geo_value = false;
-                }
-                if(notif_settings == "enabled") {
-                    notif_value = true;
-                } else {
-                    notif_value = false;
-                }
-                user = new User(user_name,user_username,user_email, uuid, geo_value, notif_value);
                 intent.putExtra("user", (Serializable) user);
                 launchEditProfileActivity.launch(intent);
 
             }
         });
+
+        // admin login
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create and show a popup window for verification
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Verification");
+                builder.setMessage("Enter your verification code:");
+
+                final EditText input = new EditText(getActivity());
+                builder.setView(input);
+
+                builder.setPositiveButton("Verify", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String verificationCode = input.getText().toString();
+                        // Add verification logic here, currently a placeholder
+                        if (verificationCode.equals("1234")) {
+                            Intent i = new Intent(getActivity(), AdminMainActivity.class);
+                            startActivity(i);
+                        } else {
+                            // Verification failed, show an error message or handle accordingly
+                            Toast.makeText(getActivity(), "Verification failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
+            }
+        });
+
+        // remove pfp and set is to the generated pfp
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pfp.setImageResource(R.drawable.baseline_person_24);
-                StorageReference imageRef = FirebaseStorage.getInstance().getReference().child("images/" + user.getUsername());
+                StorageReference imageRef = FirebaseStorage.getInstance().getReference().child("images/" + uuid);
                 imageRef.delete();
-
+                user.setPfp(user.getGenpfp());
+                setPfp(user);
+                attendeeDB.addUser(user);
             }
         });
         return view;
     }
 
     /**
-     * Query to extract user data
-     * @param uuid The unique idenitfier assigned to the user using Firebase Authenticator
+     * Fill the page with user details when is have been retrieved from Firebase
+     *
+     * @param user       User data that has been retrieved from Firebase
+     **/
+    @Override
+    public void onCallback(User user) {
+        // Handle the retrieved user data
+        this.user = user;
+        setData(user);
+    }
+
+    /**
+     * Initializes data and views
+     *
+     * @param view           Views in the fragment
      */
-    private void getUser(String uuid) {
-        if (uuid == null) {
-            // Handle the case where uuid is null (e.g., log an error, throw an exception, or return)
-            Log.e(TAG, "UUID is null in getUser");
-            return;
-        }
-        CollectionReference ref = attendeeDB.getUserRef();
-        DocumentReference docRef = ref.document(uuid);
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        name.setText(document.getString("Name"));
-                        email.setText(document.getString("Email"));
-                        notification.setText(document.getString("Notif"));
-                        geo.setText(document.getString("Geo"));
+    private void initViews(View view) {
+        update = view.findViewById(R.id.up_button);
+        admin = view.findViewById(R.id.admin_button);
+        remove = view.findViewById(R.id.remove);
+        name = view.findViewById(R.id.nameText);
+        email = view.findViewById(R.id.emailText);
+        pfp = view.findViewById(R.id.pfp);
+        geo = view.findViewById(R.id.geotext);
+        notification = view.findViewById(R.id.notiftext);
+    }
 
-                        if(document.getString("Geo") == "true") {
-                            geo.setText("enabled");
-                            Log.d(TAG, " such document" + document.getString("Geo"));
-                        } else {
-                            geo.setText("disabled");
-                            Log.d(TAG, " such document" + document.getString("Geo"));
-                        }
-
-                        if(document.getString("Notif") == "true") {
-                            notification.setText("enabled");
-                        } else {
-                            notification.setText("disabled");
-                        }
-
-                    } else {
-                        Log.d(TAG, "No such document");
-                    }
-                } else {
-                    Log.d(TAG, "get failed with ", task.getException());
-                }
+    /**
+     * Set Text on Fragment with user details
+     *
+     * @param user       User details
+     **/
+    public void setData(User user) {
+        name.setText(user.getName());
+        email.setText(user.getEmail());
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            if (user.getGeolocation()){
+                geo.setText("Enabled");
+            }else{
+                geo.setText("Disabled");
             }
-        });
+
+        } else {
+            geo.setText("Disabled");
+        }
+        if(user.getNotifications()) {
+            notification.setText("Enabled");
+        } else {
+            notification.setText("Disabled");
+        }
+        setPfp(user);
+    }
+
+    /**
+     * Set Profile picture
+     *
+     * @param user           Logged in User
+     */
+    public void setPfp(User user) {
+        Glide.with(this).load(user.getPfp()).into(pfp);
     }
 }

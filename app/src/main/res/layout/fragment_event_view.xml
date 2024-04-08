@@ -8,8 +8,8 @@
     tools:context=".MainActivity">
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/poster_image"
+        android:layout_height="wrap_content"
+        android:id="@+id/qr"
         android:src="@drawable/ic_launcher_background"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@id/constraintLayout2"/>
@@ -127,6 +127,7 @@
         </TextView>
 
 
+
         <Button
             android:id="@+id/view_attendee"
             android:layout_width="match_parent"
@@ -163,6 +164,9 @@
         android:id="@+id/back_button_event_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/secondary_button"
         android:text="BACK"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

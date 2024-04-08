@@ -2,29 +2,59 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CollatzCheckIn"
-        tools:targetApi="31">
+        tools:targetApi="33">
         <activity
-            android:name=".EventView"
+            android:name=".event.QrActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateEvent"
+            android:name=".event.EventViewAttendee"
             android:exported="false" />
         <activity
-            android:name=".AttendeeList"
+            android:name=".event.CameraActivity"
             android:exported="false" />
         <activity
-            android:name=".EventList"
+            android:name=".attendee.events.EventSignUp"
+            android:exported="false" />
+        <activity android:name=".event.CreateEvent"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".event.EventView"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".event.AttendeeList"
+            android:exported="false" />
+        <activity
+            android:name=".event.SendNotification"
+            android:exported="false" />
+        <activity
+            android:name=".event.CreateEvent"
+            android:exported="false" />
+        <activity
+            android:name=".event.MapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".event.EventList"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -36,7 +66,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".attendee.profile.UpdateProfileActivity"
+            android:name=".attendee.profile.CreateProfileActivity"
             android:exported="false" />
         <activity
             android:name=".attendee.profile.ProfileFragment"
@@ -56,6 +86,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".event.Capture"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme">
+        </activity>
+        <!-- [START firebase_service] -->
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!-- [END firebase_service] -->
+
+            android:theme="@style/zxing_CaptureTheme" />
     </application>
 
 </manifest>

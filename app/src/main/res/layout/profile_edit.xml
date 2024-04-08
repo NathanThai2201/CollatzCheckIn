@@ -8,8 +8,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="354dp"
-        android:layout_height="485dp"
+        android:layout_width="357dp"
+        android:layout_height="502dp"
         android:layout_marginTop="50dp"
         app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,8 +17,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="359dp"
+            android:layout_height="519dp"
             android:orientation="vertical"
             tools:ignore="UseSwitchCompatOrMaterialXml">
 
@@ -28,34 +28,22 @@
                 android:layout_height="58dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="408dp"
+                android:visibility="gone"
                 app:layout_constraintStart_toEndOf="@+id/notif"
                 app:layout_constraintTop_toTopOf="parent" />
+
 
             <EditText
                 android:id="@+id/editEmail"
                 android:layout_width="196dp"
                 android:layout_height="49dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="232dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="216dp"
                 android:hint="Email"
+                android:inputType="textEmailAddress"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText"
-                android:inputType="textEmailAddress">
-
-            </EditText>
-
-            <EditText
-                android:id="@+id/editUsername"
-                android:layout_width="195dp"
-                android:layout_height="47dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="176dp"
-                android:hint="Username"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText"
-                android:inputType="text">
+                tools:ignore="HardcodedText">
 
             </EditText>
 
@@ -63,8 +51,8 @@
                 android:id="@+id/geo"
                 android:layout_width="112dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="356dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="364dp"
                 android:text="GeoLocation:"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,10 +63,12 @@
                 android:id="@+id/notif"
                 android:layout_width="112dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="420dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="416dp"
                 android:text="Notifications:"
                 android:textSize="18sp"
+                android:visibility="gone"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -100,46 +90,66 @@
                 android:id="@+id/editName"
                 android:layout_width="195dp"
                 android:layout_height="46dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="124dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="144dp"
                 android:hint="Name"
+                android:inputType="text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText"
-                android:inputType="text">
+                tools:ignore="HardcodedText">
 
             </EditText>
 
             <TextView
                 android:layout_width="174dp"
                 android:layout_height="68dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="44dp"
                 android:text="Profile"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="50sp"
+                android:textSize="40sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.133"
+                app:layout_constraintHorizontal_bias="0.777"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/editpfp"
-                android:layout_width="111dp"
-                android:layout_height="87dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="122dp"
+                android:layout_height="103dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="220dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_person_24" />
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvStories"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/pfp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/baseline_person_24" />
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Switch
                 android:id="@+id/enablegeo"
                 android:layout_width="77dp"
                 android:layout_height="56dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="344dp"
+                android:layout_marginTop="352dp"
                 app:layout_constraintStart_toEndOf="@+id/geo"
                 app:layout_constraintTop_toTopOf="parent" />
 

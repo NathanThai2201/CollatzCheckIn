@@ -3,8 +3,6 @@ package com.example.collatzcheckin.authentication;
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 
-import static com.google.android.material.internal.ContextUtils.getActivity;
-
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
@@ -12,14 +10,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.collatzcheckin.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.concurrent.Executor;
 
 /**
  * AnonAuthentication handles user authentication
@@ -63,13 +59,14 @@ public class AnonAuthentication {
 
     /**
      * Checks if it's the user first time and they need to create a profile
-     * @param context The activiity the authetication is being performed on
+     *
+     * @param context           The activiity the authetication is being performed on
+     * @param onSuccessListener
      * @return boolean value, where true is they need to create a profile
      */
-    public boolean updateUI(Context context) {
+    public boolean updateUI(Context context, OnSuccessListener<String> onSuccessListener) {
         this.context = context;
-        final Boolean[] createProfile = {true};
-
+        final Boolean[] createProfile = {false};
         if (getUser() == null) {
             mAuth.signInAnonymously()
                     .addOnCompleteListener((Activity) context, new OnCompleteListener<AuthResult>() {
@@ -80,12 +77,13 @@ public class AnonAuthentication {
                                 Log.d(TAG, "signInAnonymously:success");
                                 Boolean create = true;
                                 createProfile[0] = true;
+                                onSuccessListener.onSuccess("Success");
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w(TAG, "signInAnonymously:failure", task.getException());
                                 Toast.makeText(context, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();
-                                updateUI(context);
+
                                 createProfile[0] = false;
                             }
                         }

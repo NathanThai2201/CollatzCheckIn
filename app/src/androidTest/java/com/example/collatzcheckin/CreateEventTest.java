@@ -10,7 +10,10 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import org.junit.Rule;
 import org.junit.Test;
 
+import com.example.collatzcheckin.event.CreateEvent;
+
 public class CreateEventTest {
+
     @Rule
     public ActivityScenarioRule<CreateEvent> scenario = new ActivityScenarioRule<CreateEvent>(CreateEvent.class);
 

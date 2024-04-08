@@ -38,61 +38,59 @@
                 android:id="@+id/geo"
                 android:layout_width="112dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="348dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="340dp"
                 android:text="GeoLocation:"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
             <TextView
                 android:id="@+id/notif"
                 android:layout_width="112dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="404dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="392dp"
                 android:text="Notifications:"
                 android:textSize="18sp"
+                android:visibility="gone"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="237dp"
                 android:layout_height="43dp"
-                android:layout_marginTop="288dp"
+                android:layout_marginTop="276dp"
                 android:text="Preferences"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/emailText"
-                android:layout_width="140dp"
+                android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="240dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="224dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/usernameText"
-                android:layout_width="142dp"
-                android:layout_height="29dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="180dp"
-                app:layout_constraintStart_toEndOf="@+id/textView3"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/textView"
-                android:layout_width="112dp"
+                android:layout_width="52dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="124dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="172dp"
                 android:text="Name:"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -100,46 +98,38 @@
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="112dp"
+                android:layout_width="52dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="240dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="224dp"
                 android:text="Email:"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="112dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="180dp"
-                android:text="Username:"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="174dp"
-                android:layout_height="68dp"
-                android:layout_marginTop="24dp"
+                android:layout_width="159dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="52dp"
                 android:text="Profile"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="50sp"
+                android:textSize="40sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.133"
+                app:layout_constraintHorizontal_bias="0.702"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/nameText"
-                android:layout_width="112dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="124dp"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="172dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -147,8 +137,10 @@
                 android:id="@+id/geotext"
                 android:layout_width="112dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="348dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="340dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/geo"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -156,24 +148,44 @@
                 android:id="@+id/notiftext"
                 android:layout_width="112dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="404dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="392dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:visibility="gone"
                 app:layout_constraintStart_toEndOf="@+id/notif"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/pfp"
-                android:layout_width="94dp"
-                android:layout_height="92dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="36dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:visibility="visible"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="122dp"
+                android:layout_height="103dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="216dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat='@drawable/baseline_person_24'
-                tools:ignore="SpeakableTextPresentCheck"/>
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvStories"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:cardCornerRadius="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/pfp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/baseline_person_24" />
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -191,5 +203,17 @@
         android:backgroundTint="@color/primary_button"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:layout_constraintVertical_bias="0.209" />
+
+    <Button
+        android:id="@+id/admin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/secondary_button"
+        android:text="Continue As Admin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/up_button"
+        app:layout_constraintVertical_bias="0.217" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

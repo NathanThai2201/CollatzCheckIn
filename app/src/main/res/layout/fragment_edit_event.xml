@@ -48,15 +48,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/poster_image"
             app:layout_constraintVertical_bias="0.017" />
+
+
         <Button
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/secondary_button"
             android:text="BACK"
-            android:backgroundTint="@color/primary_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -81,6 +84,7 @@
             android:id="@+id/submit_event_edit_button"
             android:layout_width="168dp"
             android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
             android:backgroundTint="@color/secondary_button"
             android:text="Submit Changes"
             app:layout_constraintBottom_toBottomOf="parent"

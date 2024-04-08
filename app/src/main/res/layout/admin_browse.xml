@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Browse"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/events_button"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:text="View Events"
+        android:textSize="42sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#008080"
+        app:layout_constraintBottom_toTopOf="@+id/profiles_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        />
+    <Button
+        android:id="@+id/signup_button"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:text="Search Events"
+        android:textSize="42sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#008080"
+        app:layout_constraintBottom_toTopOf="@+id/profiles_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/events_button"
+        />
+
+    <Button
+        android:id="@+id/profiles_button"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:text="View Profiles"
+        android:textSize="42sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#008080"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintTop_toBottomOf="@+id/signup_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

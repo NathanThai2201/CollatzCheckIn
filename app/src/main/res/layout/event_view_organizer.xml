@@ -18,11 +18,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="100dp"
             android:backgroundTint="@color/primary_button"
             android:text="Create Event"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,13 +31,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent">
-            <Button
-                android:id="@+id/back_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BACK"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
@@ -55,12 +49,12 @@
             android:id="@+id/event_list_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toTopOf="@+id/create_event"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:layout_constraintVertical_bias="1.0">
 
         </ListView>
 
@@ -72,24 +66,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
 
-            <Button
-                android:id="@+id/attending_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="View attending"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/organizer_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="View organized events"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="334dp"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+            <RadioButton
+                android:id="@+id/attendee_button"
+                android:layout_width="148dp"
+                android:layout_height="match_parent"
+                android:checked="true"
+                android:text="Attending"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/organizer_button"
+                android:layout_width="206dp"
+                android:layout_height="match_parent"
+                android:text="Organizing"
+                android:textSize="20sp" />
+
+
+        </RadioGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
