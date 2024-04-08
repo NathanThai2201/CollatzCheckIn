@@ -137,10 +137,12 @@ public class EditEventFragment extends Fragment {
         return view;
 
     }
+
+    /**
+     * Method to upload a poster image to Firebase Storage.
+     * Checks if the image URI is not null, then uploads the image to the storage reference.
+     */
     private void uploadPoster() {
-        //SimpleDateFormat date_formatter = new SimpleDateFormat("yyyy_MM-dd_HH_mm_ss", Locale.CANADA);
-        //Date now = new Date();
-        //String poster_filename = date_formatter.format(now);
         if (imageUri != null) {
             storageReference.putFile(imageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -159,6 +161,11 @@ public class EditEventFragment extends Fragment {
             Toast.makeText(getContext(), "Select an image first", Toast.LENGTH_LONG).show();
         }
     }
+    /**
+     * Activity result launcher to handle selecting an image from the gallery.
+     * Sets the image URI and updates the ImageView with the selected image.
+     *
+     */
     private final ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             result -> {
                 if (result.getResultCode() == Activity.RESULT_OK) {
@@ -169,12 +176,21 @@ public class EditEventFragment extends Fragment {
                     }
                 }
             });
+
+    /**
+     *Method to chose an image from gallery
+     */
     private void selectPoster() {
         Intent imageIntent = new Intent();
         imageIntent.setType("image/*");
         imageIntent.setAction(Intent.ACTION_GET_CONTENT);
         launcher.launch(imageIntent);
     }
+    /**
+     * Method to submit changes to an event in the Firestore.
+     * Retrieves event description, date, and location from input fields and updates the corresponding document in Firestore.
+     * Displays a toast message upon successful or failed update.
+     */
     private void submitChanges(){
         String event_Description = eventDescriptionInput.getText().toString();
         String event_Date = eventDateInput.getText().toString();

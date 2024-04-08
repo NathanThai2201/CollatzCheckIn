@@ -56,6 +56,12 @@ public class MapActivity extends AppCompatActivity {
             }
         });
 
+
+        /**
+         * Retrieves attendee information from Firestore, processes it, and updates the map with markers for attendees who have their geo-location enabled.
+         * This method fetches attendee data from Firestore, iterates through the attendee IDs and associated check-in status,
+         * retrieves geo-location information for attendees who are checked in, and adds markers to the map for those attendees.
+         */
         ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                             @Override
                                             public void onComplete(@NonNull Task<DocumentSnapshot> task) {

@@ -85,27 +85,5 @@ public class EventDB {
             }
         });
     }
-//
-//    public void getAttendeeList(String event) {
-//        eventRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
-//            @Override
-//            public void onEvent(@Nullable QuerySnapshot querySnapshots, @Nullable FirebaseFirestoreException error) {
-//                if (error != null) {
-//                    Log.e("Firestore", error.toString());
-//                    return;
-//                }
-//
-//                    for (QueryDocumentSnapshot doc : querySnapshots) {
-//                        String organizer = doc.getString("Event Organizer");
-//                        if (organizer.matches(event)) {
-//
-//                            attendees = (HashMap<String,String>) doc.get("Attendees");
-//                            Log.w(TAG, String.valueOf(attendees));
-//                        }
-//                    }
-//
-//
-//                }
-//            });
-//        }
+
 }

@@ -75,11 +75,16 @@ public class CameraFragment extends Fragment {
         return view;
     }
 
-    /**
-     * Method to open up camera
-     */
-    //Open camera with settings
 
+
+    /**
+     * Updates the location of a user after scanning.
+     * Updates the latitude and longitude fields of the user document with the provided values.
+     *
+     * @param userId    UUID
+     * @param latitude  latitude of the user's location.
+     * @param longitude longitude of the user's location.
+     */
     private void updateUserLocation(String userId, double latitude, double longitude) {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -102,6 +107,11 @@ public class CameraFragment extends Fragment {
                     Log.e("ERRLOLOLOL","lol noooo",e);
                 });
     }
+
+    /**
+     * Method to open up camera
+     */
+    //Open camera with settings
     private void scan() {
         ScanOptions options = new ScanOptions();
         options.setPrompt("Press volume up to turn on flash");
@@ -111,6 +121,14 @@ public class CameraFragment extends Fragment {
         barLauncher.launch(options);
 
     }
+
+    /**
+     * Callback method invoked when the user responds to a permission request.
+     *
+     * @param requestCode  The request code passed with the permission request.
+     * @param permissions  The permissions requested.
+     * @param grantResults The results of the permission requests.
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         // Check if permission is granted
@@ -141,9 +159,9 @@ public class CameraFragment extends Fragment {
         }
     }
 
-
-
-
+    /**
+     * Launches the barcode scanner activity and handles the result.
+     */
     ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result -> {
         if (result.getContents() != null) {
 

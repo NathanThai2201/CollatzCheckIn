@@ -370,7 +370,9 @@ public class CreateEvent extends AppCompatActivity {
                 });
     }
 
-    //Open user photos
+    /**
+     * Open user photos
+     */
     private final ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             result -> {
                 if (result.getResultCode() == Activity.RESULT_OK) {
