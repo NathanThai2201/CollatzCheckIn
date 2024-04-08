@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CollatzCheckIn</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="log_token">Log Token</string>
+
+    <string name="msg_subscribed">Signed up for event</string>
+    <string name="msg_token_fmt" translatable="false">FCM registration Token: %s</string>
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="default_notification_channel_name" translatable="true">None</string>
+    <!-- [END fcm_default_icon_string] -->
+    <string name="msg_subscribe_failed">Failed to sign up</string>
+    <string name="fcm_message">CollatzCheckIn Notification</string>
+</resources>
