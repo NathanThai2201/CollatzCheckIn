@@ -41,6 +41,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="348dp"
                 android:text="GeoLocation:"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -77,6 +78,7 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="180dp"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,6 +90,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="124dp"
                 android:text="Name:"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -98,6 +101,7 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="180dp"
+                android:textColor="@color/black"
                 android:text="Email:"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -123,6 +127,7 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="124dp"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toEndOf="@+id/textView"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -132,6 +137,7 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="348dp"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toEndOf="@+id/geo"
                 app:layout_constraintTop_toTopOf="parent" />
 

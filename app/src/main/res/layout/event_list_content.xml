@@ -24,6 +24,7 @@
             android:layout_marginStart="10dp"
             android:text="TextView"
             android:textSize="32sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,6 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="Date"
+            android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"

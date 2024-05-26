@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:id="@+id/poster_image"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/image_placeholder"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@id/constraintLayout2"/>
 
@@ -40,6 +40,7 @@
         <TextView
             android:id="@+id/event_name"
             android:layout_width="232dp"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
@@ -57,6 +58,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:text="Edmonton AB, XXX-XXX"
+            android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +73,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
+            android:textColor="@color/black"
             android:layout_marginEnd="30dp"
             android:text="FEB"
             android:textAlignment="center"
@@ -88,6 +91,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="40dp"
+            android:textColor="@color/black"
             android:text="17"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -105,6 +109,7 @@
             android:layout_marginEnd="10dp"
             android:text="19:30"
             android:textSize="24sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/event_day">
@@ -116,6 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:textColor="@color/black"
             android:layout_marginEnd="10dp"
             android:text="Lorem Ipsum is simply dummy text of the printing  and typesetting industry. Lorem Ipsum has been the industry's standard  dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specim"
             android:textSize="24sp"
@@ -138,6 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BACK"
+        android:backgroundTint="@color/secondary_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <FrameLayout

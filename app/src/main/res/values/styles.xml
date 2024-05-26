@@ -8,6 +8,8 @@
     <style name="zxing_CaptureTheme" parent="Theme.AppCompat.Light">
     </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/primary_button</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:navigationBarColor">@android:color/black</item>
     </style>
 

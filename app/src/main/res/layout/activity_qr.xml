@@ -48,7 +48,7 @@
             android:layout_width="383dp"
             android:layout_height="468dp"
             android:layout_marginTop="100dp"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/image_placeholder"
             app:layout_constraintBottom_toTopOf="@+id/share_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.571"
