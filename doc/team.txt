@@ -4,5 +4,4 @@ CCID: nathai    USERNAME: NathanThai2201
 CCID: nsekhon1  USERNAME: nehalsekhon
 CCID: mcarey1   USERNAME: MikeyItIs
 CCID: lmschult  USERNAME: LoganSchultz1
-CCID: deberg    USERNAMe: deberg3207
 CCID: jsjosep1  USERNAME: jsjosep1
